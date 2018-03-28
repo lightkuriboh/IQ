@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1522235059 source:/home/kuribohkute/workspace/C++/IQ/CreateWindows.cpp
+	"CreateWindows.h"
+
+1521364897 /home/kuribohkute/workspace/C++/IQ/CreateWindows.h
+	<SDL2/SDL.h>
+	<string>
+	"config.h"
+
+1521365016 /home/kuribohkute/workspace/C++/IQ/config.h
+
+1521384728 source:/home/kuribohkute/workspace/C++/IQ/EventHandler.cpp
+	"EventHandler.h"
+
+1521308767 /home/kuribohkute/workspace/C++/IQ/EventHandler.h
+	<iostream>
+	<SDL2/SDL.h>
+	"CreateWindows.h"
+
