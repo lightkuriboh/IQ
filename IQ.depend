@@ -17,3 +17,8 @@
 	<SDL2/SDL.h>
 	"CreateWindows.h"
 
+1522235068 source:/home/kuribohkute/workspace/C++/IQ/main.cpp
+	"CreateWindows.h"
+	"EventHandler.h"
+	"config.h"
+
