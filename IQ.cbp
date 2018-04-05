@@ -32,6 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="CreateWindows.cpp" />
+		<Unit filename="CreateWindows.h" />
+		<Unit filename="EventHandler.cpp" />
+		<Unit filename="EventHandler.h" />
+		<Unit filename="config.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

@@ -11,7 +11,7 @@ namespace myNamespace {
     pair <int, int> mouseClickLeft (const SDL_Event &event);
     pair <int, int> mouseClickRight (const SDL_Event &event);
     bool clickStart (const SDL_Event & event);
-    bool waitUntilMouseWheel (const SDL_Event & event) ;
+    bool quit (const SDL_Event & event) ;
 }
 
 #endif // EVENTHANDLER_INCLUDED

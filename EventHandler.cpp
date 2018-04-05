@@ -34,7 +34,7 @@ namespace myNamespace {
         return inRect (pos.first, pos.second, button.r);
     }
 
-    bool waitUntilMouseWheel (const SDL_Event &event) {
+    bool quit (const SDL_Event &event) {
 
         if ( 0 || event.type == SDL_QUIT ) return true;
         return false;
