@@ -49,6 +49,7 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
         }
         presentFrame(window);
         presentGameState(window);
+        SDL_Delay (100);
     } while (cnt > 0);
 }
 
@@ -113,19 +114,21 @@ void gameInfo :: presentGameState (SDL_Window *&window) {
         blocks.y = positionFrame.y + (pos.second - 1) * eachSize;
         presentImage(window, blocks, "img/block.bmp");
     }
-    for (auto pos: ball) {
-        SDL_Rect balls;
-        balls.w = balls.h = eachSize;
-        balls.x = positionFrame.x + (pos.first - 1) * eachSize;
-        balls.y = positionFrame.y + (pos.second - 1) * eachSize;
-        presentImage(window, balls, "img/ball.bmp");
-    }
+
     for (auto pos: destination) {
         SDL_Rect destinations;
         destinations.w = destinations.h = eachSize;
         destinations.x = positionFrame.x + (pos.first - 1) * eachSize;
         destinations.y = positionFrame.y + (pos.second - 1) * eachSize;
         presentImage(window, destinations, "img/destination.bmp");
+    }
+
+    for (auto pos: ball) {
+        SDL_Rect balls;
+        balls.w = balls.h = eachSize;
+        balls.x = positionFrame.x + (pos.first - 1) * eachSize;
+        balls.y = positionFrame.y + (pos.second - 1) * eachSize;
+        presentImage(window, balls, "img/ball.bmp");
     }
     SDL_RenderPresent(renderer);
 }

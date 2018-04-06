@@ -8,7 +8,7 @@ const int mainWindowsWidth  = 960;
 const int mainWindowsHeight = 640;
 
 const string buttonStart_link = "img/button_start.bmp";
-const string background_link = "img/BG.bmp";
+const string background_link = "img/bg.bmp";
 
 static int level = 1;
 

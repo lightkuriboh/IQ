@@ -60,17 +60,17 @@ void StartOneThread (const int &height, const int &width) {
             gameInfo newGame (level, New.window);
             newGame.updateAllState(New.window);
 
-            SDL_Delay(3000);
+            SDL_Delay(1000);
 
             newGame.RotateRightAll ();
             newGame.updateAllState(New.window);
 
-            SDL_Delay(3000);
+            SDL_Delay(1000);
 
             newGame.RotateLeftAll ();
             newGame.updateAllState(New.window);
 
-            SDL_Delay(3000);
+            SDL_Delay(1000);
 
             newGame.RotateLeftAll ();
             newGame.updateAllState(New.window);
