@@ -3,6 +3,7 @@
 #include <iostream>
 #include <SDL2/SDL.h>
 #include "CreateWindows.h"
+#include "buttons.h"
 
 using namespace std;
 

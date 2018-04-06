@@ -1,25 +1,47 @@
 # depslib dependency file v1.0
-1522929343 source:/home/kuribohkute/workspace/C++/IQ/CreateWindows.cpp
+1522999621 source:/home/kuribohkute/workspace/C++/IQ/CreateWindows.cpp
 	"CreateWindows.h"
 
-1521364897 /home/kuribohkute/workspace/C++/IQ/CreateWindows.h
+1522999611 /home/kuribohkute/workspace/C++/IQ/CreateWindows.h
 	<SDL2/SDL.h>
 	<string>
 	"config.h"
 
-1522929362 /home/kuribohkute/workspace/C++/IQ/config.h
+1522999840 /home/kuribohkute/workspace/C++/IQ/config.h
+	<string>
 
-1522927979 source:/home/kuribohkute/workspace/C++/IQ/EventHandler.cpp
+1522998622 source:/home/kuribohkute/workspace/C++/IQ/EventHandler.cpp
 	"EventHandler.h"
 
-1522927986 /home/kuribohkute/workspace/C++/IQ/EventHandler.h
+1522998330 /home/kuribohkute/workspace/C++/IQ/EventHandler.h
 	<iostream>
 	<SDL2/SDL.h>
 	"CreateWindows.h"
+	"buttons.h"
 
-1522928183 source:/home/kuribohkute/workspace/C++/IQ/main.cpp
+1523000583 source:/home/kuribohkute/workspace/C++/IQ/main.cpp
 	"CreateWindows.h"
 	"EventHandler.h"
 	"config.h"
+	"gamePresenter.h"
+	"buttons.h"
 	<thread>
+
+1523000344 /home/kuribohkute/workspace/C++/IQ/gamePresenter.h
+	<sstream>
+	<vector>
+	<fstream>
+	<iostream>
+	<SDL2/SDL.h>
+	"config.h"
+
+1523000630 source:/home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp
+	"gamePresenter.h"
+
+1522999385 source:/home/kuribohkute/workspace/C++/IQ/buttons.cpp
+	"buttons.h"
+
+1522999390 /home/kuribohkute/workspace/C++/IQ/buttons.h
+	"config.h"
+	<SDL2/SDL.h>
 

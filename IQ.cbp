@@ -36,7 +36,11 @@
 		<Unit filename="CreateWindows.h" />
 		<Unit filename="EventHandler.cpp" />
 		<Unit filename="EventHandler.h" />
+		<Unit filename="buttons.cpp" />
+		<Unit filename="buttons.h" />
 		<Unit filename="config.h" />
+		<Unit filename="gamePresenter.cpp" />
+		<Unit filename="gamePresenter.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />

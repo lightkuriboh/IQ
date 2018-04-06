@@ -1,6 +1,8 @@
 #include "CreateWindows.h"
 #include "EventHandler.h"
 #include "config.h"
+#include "gamePresenter.h"
+#include "buttons.h"
 #include <thread>
 
 using namespace std;
@@ -25,26 +27,45 @@ int main ( int argc, char* args[] ) {
 
 void StartOneThread (const int &height, const int &width) {
 
-    stopGame = false;
+    bool stopGame = false;
+
     UI New;
     New._make_main_windows ("IQ", width, height);
+    New.initBackground(New.window, background_link);
+
+    button myButtonStart;
+    myButtonStart.init();
+    myButtonStart.createButton(New.window);
+
+    bool started = false;
+    bool inGame = false;
 
     while (!stopGame) {
 
         SDL_Event event;
 
+
         if (SDL_PollEvent(&event) != 0) {
             if (quit (event)) {
                 stopGame = true;
-            } else
-            if (clickStart(event)) {
-                SDL_ShowSimpleMessageBox(0, "You started the game!", SDL_GetError(), New.window);
             }
+            if (!inGame && clickStart(event)) {
+                started = true;
+                inGame = true;
+            }
+        }
+        if (started == true) {
+            SDL_ShowSimpleMessageBox(0, "You started the game!", SDL_GetError(), New.window);
+            gameInfo newGame (level);
+            New.initBackground(New.window, background_link);
+            newGame.presentFrame ( New.window );
+            newGame.presentGameState (New.window);
+            started = false;
         }
     }
     New.quitSDL();
 }
-
+/*
 void StartGame (const int &width, const int &height) {
     try {
 
@@ -79,5 +100,4 @@ void  RunEventHandler () {
         }
     }
 }
-
-
+*/
