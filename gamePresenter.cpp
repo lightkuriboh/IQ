@@ -37,12 +37,36 @@ void updateBallPotision (vector <pair <int, int> > &v) {
 
 }
 
-void gameInfo :: RotateLeft (vector <pair <int, int> > &v) {
-
+void gameInfo :: RotateRight (vector <pair <int, int> > &v) {
+    int w = 10,
+        h = 10;
+    for (int i = 0; i < int(v.size()); i++) {
+        int tmp = v[i].second;
+        v[i].second = v[i].first;
+        v[i].first = h - tmp + 1;
+    }
 }
 
-void gameInfo :: RotateRight (vector <pair <int, int> > &v) {
+void gameInfo :: RotateLeft (vector <pair <int, int> > &v) {
+    int w = 10,
+        h = 10;
+    for (int i = 0; i < int(v.size()); i++) {
+        int tmp = v[i].first;
+        v[i].first = v[i].second;
+        v[i].second = w - tmp + 1;
+    }
+}
 
+void gameInfo :: RotateLeftAll () {
+    RotateLeft (ball);
+    RotateLeft (destination);
+    RotateLeft (block);
+}
+
+void gameInfo :: RotateRightAll () {
+    RotateRight (ball);
+    RotateRight (destination);
+    RotateRight (block);
 }
 
 void gameInfo :: presentImage (SDL_Window *& window, const SDL_Rect r, const string &image_link) {

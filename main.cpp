@@ -55,11 +55,33 @@ void StartOneThread (const int &height, const int &width) {
             }
         }
         if (started == true) {
-            SDL_ShowSimpleMessageBox(0, "You started the game!", SDL_GetError(), New.window);
+            //SDL_ShowSimpleMessageBox(0, "You started the game!", SDL_GetError(), New.window);
             gameInfo newGame (level);
             New.initBackground(New.window, background_link);
             newGame.presentFrame ( New.window );
             newGame.presentGameState (New.window);
+
+            SDL_Delay(1000);
+
+            newGame.RotateLeftAll ();
+
+            newGame.presentFrame ( New.window );
+            newGame.presentGameState(New.window);
+
+            SDL_Delay(1000);
+
+            newGame.RotateRightAll ();
+
+            newGame.presentFrame ( New.window );
+            newGame.presentGameState(New.window);
+
+            SDL_Delay(1000);
+
+            newGame.RotateRightAll ();
+
+            newGame.presentFrame ( New.window );
+            newGame.presentGameState(New.window);
+
             started = false;
         }
     }

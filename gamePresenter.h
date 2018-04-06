@@ -17,12 +17,16 @@ namespace myNamespace {
             vector <pair <int, int> > destination;
 
             gameInfo (const int level);
-            void RotateLeft (vector <pair <int, int> > &v);
-            void RotateRight (vector <pair <int, int> > &v);
+
             void presentFrame (SDL_Window *&window);
             void presentGameState (SDL_Window *&window);
 
+            void RotateLeftAll  ();
+            void RotateRightAll ();
+
         private:
+            void RotateLeft (vector <pair <int, int> > &v);
+            void RotateRight (vector <pair <int, int> > &v);
             void updateBallPotision (vector <pair <int, int> > &v);
             void presentImage (SDL_Window *&window, const SDL_Rect r, const string &image_link);
             SDL_Rect positionFrame;
