@@ -19,7 +19,7 @@
 	"CreateWindows.h"
 	"buttons.h"
 
-1523011852 source:/home/kuribohkute/workspace/C++/IQ/main.cpp
+1523011942 source:/home/kuribohkute/workspace/C++/IQ/main.cpp
 	"CreateWindows.h"
 	"EventHandler.h"
 	"config.h"
@@ -35,7 +35,7 @@
 	<SDL2/SDL.h>
 	"config.h"
 
-1523011787 source:/home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp
+1523011957 source:/home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp
 	"gamePresenter.h"
 
 1522999385 source:/home/kuribohkute/workspace/C++/IQ/buttons.cpp
