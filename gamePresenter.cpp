@@ -4,7 +4,7 @@
 using namespace myNamespace;
 using namespace std;
 
-gameInfo :: gameInfo (const int level) {
+gameInfo :: gameInfo (const int level, SDL_Window *&window) {
     stringstream ss;
     ss << level;
     string levelNow = "";
@@ -29,12 +29,27 @@ gameInfo :: gameInfo (const int level) {
     while (fi >> x >> y) { destination.push_back(make_pair(x, y)); }
     fi.close ();
     //--------------------------------------------------------------------
+    renderer = SDL_CreateRenderer (window, -1, 0);
 }
 
+void gameInfo :: updateAllState (SDL_Window *&window) {
+    bool state[11][11];
+    memset (state, false, sizeof(state));
+    for (auto info: block)
+        state [info.first][info.second] = true;
 
-
-void updateBallPotision (vector <pair <int, int> > &v) {
-
+    int cnt;
+    do {
+        cnt = 0;
+        for (int i = 0; i < int(ball.size()); i++) {
+            if (ball[i].second + 1 < 11 && state[ball[i].first][ball[i].second + 1] == false) {
+                ball[i].second++;
+                cnt++;
+            }
+        }
+        presentFrame(window);
+        presentGameState(window);
+    } while (cnt > 0);
 }
 
 void gameInfo :: RotateRight (vector <pair <int, int> > &v) {
@@ -71,20 +86,11 @@ void gameInfo :: RotateRightAll () {
 
 void gameInfo :: presentImage (SDL_Window *& window, const SDL_Rect r, const string &image_link) {
 
-    SDL_Renderer * renderer = NULL;
-    renderer = SDL_CreateRenderer(window, -1, 0);
-
     SDL_Surface *background = SDL_LoadBMP(image_link.c_str());
 
-    SDL_Texture *texture = NULL;
     texture = SDL_CreateTextureFromSurface(renderer, background);
 
     SDL_RenderCopy (renderer, texture, NULL, &r);
-
-    SDL_DestroyTexture(texture);
-
-    SDL_RenderPresent(renderer);
-    SDL_DestroyRenderer(renderer);
 }
 
 void gameInfo :: presentFrame (SDL_Window *&window) {
@@ -98,6 +104,7 @@ void gameInfo :: presentFrame (SDL_Window *&window) {
 }
 
 void gameInfo :: presentGameState (SDL_Window *&window) {
+
     double eachSize = positionFrame.h / 10.0;
     for (auto pos: block) {
         SDL_Rect blocks;
@@ -120,5 +127,6 @@ void gameInfo :: presentGameState (SDL_Window *&window) {
         destinations.y = positionFrame.y + (pos.second - 1) * eachSize;
         presentImage(window, destinations, "img/destination.bmp");
     }
+    SDL_RenderPresent(renderer);
 }
 
