@@ -54,8 +54,9 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
     int cnt;
     do {
 
-        presentFrame(window, false);
+        presentFrameBackground(window, false);
         presentGameState(window);
+        presentIFrame (window);
         SDL_RenderPresent(renderer);
 
         cnt = 0;
@@ -128,7 +129,18 @@ void gameInfo :: presentImage (SDL_Window *& window, const SDL_Rect r, const str
 
 }
 
-void gameInfo :: presentFrame (SDL_Window *&window, const bool &levelComplete) {
+void gameInfo :: presentIFrame (SDL_Window *&window) {
+    SDL_Rect iframe;
+    iframe.w = mainWindowsWidth * 0.5;
+    iframe.h = iframe.w;
+    iframe.x = mainWindowsWidth * 0.5 - iframe.w * 0.5;
+    iframe.y = mainWindowsHeight * 0.4 - iframe.h * 0.5;
+
+    presentImage (window, iframe, frame_link);
+
+}
+
+void gameInfo :: presentFrameBackground (SDL_Window *&window, const bool &levelComplete) {
 
     positionFrame.w = mainWindowsWidth * 0.36;
     positionFrame.h = positionFrame.w;
@@ -183,7 +195,8 @@ bool gameInfo :: completeLevel () {
 }
 
 void gameInfo :: displayComplete (SDL_Window *&window) {
-    presentFrame (window, true);
+    presentFrameBackground (window, true);
+    presentIFrame (window);
     SDL_RenderPresent (renderer);
 }
 

@@ -32,7 +32,8 @@ namespace myNamespace {
             SDL_Texture *texture;
             SDL_Rect positionFrame;
             SDL_Renderer *renderer;
-            void presentFrame (SDL_Window *&window, const bool &levelComplete);
+            void presentIFrame (SDL_Window *&window);
+            void presentFrameBackground (SDL_Window *&window, const bool &levelComplete);
             void presentGameState (SDL_Window *&window);
             void RotateLeft (vector <pair <int, int> > &v);
             void RotateRight (vector <pair <int, int> > &v);

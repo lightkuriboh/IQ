@@ -28,6 +28,7 @@ namespace myNamespace {
                 }
                 if (clickBackMenu (event) ) {
                     backMenu = true;
+                    newGame.freeResource ();
                     return;
                 }
                 if (!levelUp && newGame.completeLevel () ) {
@@ -45,7 +46,7 @@ namespace myNamespace {
 
     void initGameMenu (UI &thisUI) {
 
-        thisUI._make_main_windows ("IQ", mainWindowsWidth, mainWindowsHeight);
+        //thisUI._make_main_windows ("IQ", mainWindowsWidth, mainWindowsHeight);
         thisUI.initBackground(thisUI.window, background_link);
 
         StartButton myButtonStart;
@@ -59,6 +60,7 @@ namespace myNamespace {
         bool stopGame = false;
 
         UI New;
+        New._make_main_windows ("IQ", mainWindowsWidth, mainWindowsHeight);
         initGameMenu (New);
 
         bool started = false;
@@ -109,6 +111,7 @@ namespace myNamespace {
                 }
                 else {
                     level = 1;
+                    //break;
                 }
             }
 
