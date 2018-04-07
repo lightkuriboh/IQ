@@ -4,7 +4,7 @@ using namespace myNamespace;
 
 namespace myNamespace {
 
-    void processlevel (SDL_Window *&window, int &level, bool &stopGame, bool &levelUp) {
+    void processlevel (SDL_Window *&window, int &level, bool &stopGame, bool &levelUp, bool &backMenu) {
 
         gameInfo newGame (level, window);
 
@@ -26,11 +26,16 @@ namespace myNamespace {
                     newGame.RotateRightAll ();
                     newGame.updateAllState (window);
                 }
+                if (clickBackMenu (event) ) {
+                    backMenu = true;
+                    return;
+                }
                 if (!levelUp && newGame.completeLevel () ) {
                     printf("Level %d Complete!\n", level);
                     levelUp = true;
                     return;
                 }
+
             }
         }
     }
@@ -53,16 +58,11 @@ namespace myNamespace {
         UI New;
         initGameMenu (New);
 
-        RotateButton myRotateRightButton;
-        myRotateRightButton.init ("right");
-
-        RotateButton myRotateLeftButton;
-        myRotateLeftButton.init ("left");
-
         bool started = false;
         bool inGame = false;
         int level = 1;
         bool levelUp = false;
+        bool backMenu = false;
 
         while (!stopGame) {
 
@@ -83,14 +83,28 @@ namespace myNamespace {
 
                 New.initBackground(New.window, background_link);
 
+                RotateButton myRotateLeftButton;
+                myRotateLeftButton.init ("left");
                 myRotateLeftButton.createButton (New.window);
 
+                RotateButton myRotateRightButton;
+                myRotateRightButton.init ("right");
                 myRotateRightButton.createButton (New.window);
 
+                BackButton myBackButton;
+                myBackButton.init ();
+                myBackButton.createButton (New.window);
+
                 levelUp = false;
-                processlevel (New.window, level, stopGame, levelUp);
+                processlevel (New.window, level, stopGame, levelUp, backMenu);
 
                 started = false;
+            }
+
+            if (backMenu) {
+                initGameMenu (New);
+                inGame = false;
+                backMenu = false;
             }
         }
         New.quitSDL();

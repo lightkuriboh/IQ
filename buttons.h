@@ -26,6 +26,11 @@ namespace myNamespace {
             void init(const string &type);
     };
 
+    class BackButton: public button {
+        public:
+            void init();
+    };
+
 }
 
 #endif // BUTTONS_H_INCLUDED

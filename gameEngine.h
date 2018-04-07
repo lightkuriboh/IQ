@@ -11,7 +11,7 @@
 using namespace myNamespace;
 
 namespace myNamespace {
-    void processLevel (SDL_Window *&window, int &level, bool &stopGame, bool &levelUp);
+    void processLevel (SDL_Window *&window, int &level, bool &stopGame, bool &levelUp, bool &backMenu);
     void StartOneThread (const int &height, const int &width);
     void initGameMenu (UI &thisUI);
 }

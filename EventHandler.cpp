@@ -48,6 +48,13 @@ namespace myNamespace {
         return inRect (pos.first, pos.second, RotateRight.r);
     }
 
+    bool clickBackMenu (const SDL_Event & event) {
+        BackButton backButton;
+        backButton.init();
+        pair <int, int> pos = mouseClickLeft(event);
+        return inRect (pos.first, pos.second, backButton.r);
+    }
+
     bool quit (const SDL_Event &event) {
 
         if ( 0 || event.type == SDL_QUIT ) return true;

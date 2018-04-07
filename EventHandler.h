@@ -14,6 +14,7 @@ namespace myNamespace {
     bool clickStart (const SDL_Event & event);
     bool clickRotateLeft (const SDL_Event & event);
     bool clickRotateRight (const SDL_Event & event);
+    bool clickBackMenu (const SDL_Event & event);
     bool quit (const SDL_Event & event) ;
 }
 

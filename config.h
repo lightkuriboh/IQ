@@ -15,5 +15,6 @@ const string completeLevel_link = "img/completeLevel.bmp";
 const string ball_link = "img/ball.bmp";
 const string destination_link = "img/destination.bmp";
 const string block_link = "img/block.bmp";
+const string back_link = "img/back.bmp";
 
 #endif // CONFIG_H_INCLUDED

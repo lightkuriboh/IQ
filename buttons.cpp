@@ -27,6 +27,12 @@ void RotateButton :: init(const string &type) {
     }
 }
 
+void BackButton :: init () {
+    r.w = r.h = mainWindowsWidth * 0.09;
+    r.x = r.y = 0;
+    link = back_link;
+}
+
 void button::createButton (SDL_Window *&window) {
 
     renderer =  SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
