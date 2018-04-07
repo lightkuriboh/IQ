@@ -54,8 +54,9 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
     int cnt;
     do {
 
-        presentFrame(window);
+        presentFrame(window, false);
         presentGameState(window);
+        SDL_RenderPresent(renderer);
 
         cnt = 0;
         for (int i = 0; i < int(ball.size()); i++) {
@@ -110,22 +111,36 @@ void gameInfo :: presentImage (SDL_Window *& window, const SDL_Rect r, const str
 
     SDL_Surface *background = SDL_LoadBMP(image_link.c_str());
 
+    if (background == NULL) {
+        SDL_ShowSimpleMessageBox(0, "Background init error!", SDL_GetError(), window);
+    }
+
     texture = SDL_CreateTextureFromSurface(renderer, background);
+
+    if(texture == NULL) {
+        SDL_ShowSimpleMessageBox(0, "Texture init error", SDL_GetError(), window);
+    }
 
     SDL_RenderCopy (renderer, texture, NULL, &r);
 
     SDL_FreeSurface (background);
     SDL_DestroyTexture (texture);
+
 }
 
-void gameInfo :: presentFrame (SDL_Window *&window) {
+void gameInfo :: presentFrame (SDL_Window *&window, const bool &levelComplete) {
 
     positionFrame.w = mainWindowsWidth * 0.36;
     positionFrame.h = positionFrame.w;
     positionFrame.x = mainWindowsWidth * 0.5 - positionFrame.w * 0.5;
     positionFrame.y = mainWindowsHeight * 0.4 - positionFrame.h * 0.5;
 
-    presentImage (window, positionFrame, "img/BG_Frame.bmp");
+    if (levelComplete == false)
+        presentImage (window, positionFrame, bgFrame_link);
+    else {
+        presentImage (window, positionFrame, completeLevel_link);
+        cout << completeLevel_link << " dsa\n";
+    }
 }
 
 void gameInfo :: presentGameState (SDL_Window *&window) {
@@ -154,7 +169,6 @@ void gameInfo :: presentGameState (SDL_Window *&window) {
         balls.y = positionFrame.y + (pos.second - 1) * eachSize;
         presentImage(window, balls, ball_link);
     }
-    SDL_RenderPresent(renderer);
 }
 
 bool gameInfo :: completeLevel () {
@@ -165,6 +179,14 @@ bool gameInfo :: completeLevel () {
                 found = true;
         if (!found) return false;
     }
-    SDL_DestroyRenderer (renderer);
     return true;
+}
+
+void gameInfo :: displayComplete (SDL_Window *&window) {
+    presentFrame (window, true);
+    SDL_RenderPresent (renderer);
+}
+
+void gameInfo :: freeResource () {
+    SDL_DestroyRenderer (renderer);
 }

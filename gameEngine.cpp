@@ -33,6 +33,9 @@ namespace myNamespace {
                 if (!levelUp && newGame.completeLevel () ) {
                     printf("Level %d Complete!\n", level);
                     levelUp = true;
+                    newGame.displayComplete (window);
+                    SDL_Delay (2000);
+                    newGame.freeResource ();
                     return;
                 }
 
@@ -105,7 +108,7 @@ namespace myNamespace {
                     level++;
                 }
                 else {
-
+                    level = 1;
                 }
             }
 

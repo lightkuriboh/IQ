@@ -14,6 +14,7 @@ using namespace std;
 namespace myNamespace {
     class gameInfo {
         public:
+
             vector <pair <int, int> > block;
             vector <pair <int, int> > ball;
             vector <pair <int, int> > destination;
@@ -22,14 +23,16 @@ namespace myNamespace {
             void RotateLeftAll  ();
             void RotateRightAll ();
             void updateAllState (SDL_Window *&window);
+            void displayComplete (SDL_Window *&window);
             bool completeLevel ();
+            void freeResource ();
+
 
         private:
-            SDL_Renderer *renderer;
             SDL_Texture *texture;
             SDL_Rect positionFrame;
-
-            void presentFrame (SDL_Window *&window);
+            SDL_Renderer *renderer;
+            void presentFrame (SDL_Window *&window, const bool &levelComplete);
             void presentGameState (SDL_Window *&window);
             void RotateLeft (vector <pair <int, int> > &v);
             void RotateRight (vector <pair <int, int> > &v);

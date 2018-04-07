@@ -44,12 +44,14 @@ void UI::initBackground (SDL_Window * &window, const string &background_link) {
     }
 
     SDL_Surface *background = SDL_LoadBMP( (background_link).c_str());
+
     if (background == NULL) {
         SDL_ShowSimpleMessageBox(0, "Background init error!", SDL_GetError(), window);
     }
 
     SDL_Texture *texture = NULL;
     texture = SDL_CreateTextureFromSurface(renderer,background);
+
     if(texture == NULL) {
         SDL_ShowSimpleMessageBox(0, "Texture init error", SDL_GetError(), window);
     }
