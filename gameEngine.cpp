@@ -101,6 +101,15 @@ namespace myNamespace {
                 started = false;
             }
 
+            if (levelUp) {
+                if (level < maxLevel) {
+                    level++;
+                }
+                else {
+
+                }
+            }
+
             if (backMenu) {
                 initGameMenu (New);
                 inGame = false;

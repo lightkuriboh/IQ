@@ -40,6 +40,9 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
 
     int cnt;
     do {
+
+        presentFrame(window);
+        presentGameState(window);
         cnt = 0;
         for (int i = 0; i < int(ball.size()); i++) {
             if (ball[i].second + 1 < 11 && state[ball[i].first][ball[i].second + 1] == false) {
@@ -47,9 +50,9 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
                 cnt++;
             }
         }
-        presentFrame(window);
-        presentGameState(window);
-        SDL_Delay (50);
+
+        SDL_Delay (100);
+
     } while (cnt > 0);
 }
 
@@ -94,7 +97,7 @@ void gameInfo :: presentImage (SDL_Window *& window, const SDL_Rect r, const str
 
 void gameInfo :: presentFrame (SDL_Window *&window) {
 
-    positionFrame.w = mainWindowsWidth * 0.4;
+    positionFrame.w = mainWindowsWidth * 0.36;
     positionFrame.h = positionFrame.w;
     positionFrame.x = mainWindowsWidth * 0.5 - positionFrame.w * 0.5;
     positionFrame.y = mainWindowsHeight * 0.4 - positionFrame.h * 0.5;
