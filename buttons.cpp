@@ -2,7 +2,7 @@
 
 using namespace myNamespace;
 
-void button::init() {
+void StartButton::init() {
 
     r.w = mainWindowsWidth * 0.2;
     r.h = mainWindowsHeight * 0.15;
@@ -10,6 +10,21 @@ void button::init() {
     r.y = mainWindowsHeight * 0.85 - r.h * 0.5;
     link = buttonStart_link;
 
+}
+
+void RotateButton :: init(const string &type) {
+
+    r.w = r.h = mainWindowsWidth * 0.1;
+
+    r.y = mainWindowsHeight * 0.85 - r.h * 0.5;
+    if (type == "left") {
+        r.x = mainWindowsWidth * 0.35 - r.w * 0.5;
+        link = RotateLeft_link;
+    }
+    else {
+        r.x = mainWindowsWidth * 0.65 - r.w * 0.5;
+        link = RotateRight_link;
+    }
 }
 
 void button::createButton (SDL_Window *&window) {
@@ -36,8 +51,4 @@ void button::createButton (SDL_Window *&window) {
     SDL_RenderPresent(renderer);
 
     SDL_DestroyRenderer(renderer);
-}
-
-void button :: freeButton () {
-    SDL_RenderCopy(renderer, texture, NULL, NULL);
 }

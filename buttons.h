@@ -11,11 +11,19 @@ namespace myNamespace {
             SDL_Renderer *renderer;
             SDL_Surface *background;
         public:
-            string link;
             SDL_Rect r;
-            void init();
+            string link;
             void createButton (SDL_Window *&window);
-            void freeButton ();
+    };
+
+    class StartButton: public button {
+        public:
+            void init();
+    };
+
+    class RotateButton: public button {
+        public:
+            void init(const string &type);
     };
 
 }

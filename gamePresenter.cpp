@@ -49,7 +49,7 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
         }
         presentFrame(window);
         presentGameState(window);
-        SDL_Delay (100);
+        SDL_Delay (50);
     } while (cnt > 0);
 }
 

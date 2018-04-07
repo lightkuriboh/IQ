@@ -33,7 +33,7 @@ void StartOneThread (const int &height, const int &width) {
     New._make_main_windows ("IQ", width, height);
     New.initBackground(New.window, background_link);
 
-    button myButtonStart;
+    StartButton myButtonStart;
     myButtonStart.init();
     myButtonStart.createButton(New.window);
 
@@ -57,6 +57,15 @@ void StartOneThread (const int &height, const int &width) {
         if (started == true) {
             //SDL_ShowSimpleMessageBox(0, "You started the game!", SDL_GetError(), New.window);
             New.initBackground(New.window, background_link);
+
+            RotateButton myRotateLeftButton;
+            myRotateLeftButton.init ("left");
+            myRotateLeftButton.createButton (New.window);
+
+            RotateButton myRotateRightButton;
+            myRotateRightButton.init ("right");
+            myRotateRightButton.createButton (New.window);
+
             gameInfo newGame (level, New.window);
             newGame.updateAllState(New.window);
 

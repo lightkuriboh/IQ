@@ -28,7 +28,7 @@ namespace myNamespace {
     }
 
     bool clickStart(const SDL_Event & event) {
-        button button;
+        StartButton button;
         button.init ();
         pair <int, int> pos = mouseClickLeft(event);
         return inRect (pos.first, pos.second, button.r);
