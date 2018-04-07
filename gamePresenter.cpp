@@ -135,11 +135,11 @@ void gameInfo :: presentFrame (SDL_Window *&window, const bool &levelComplete) {
     positionFrame.x = mainWindowsWidth * 0.5 - positionFrame.w * 0.5;
     positionFrame.y = mainWindowsHeight * 0.4 - positionFrame.h * 0.5;
 
-    if (levelComplete == false)
+    if (levelComplete == false){
         presentImage (window, positionFrame, bgFrame_link);
+    }
     else {
         presentImage (window, positionFrame, completeLevel_link);
-        cout << completeLevel_link << " dsa\n";
     }
 }
 
