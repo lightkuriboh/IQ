@@ -6,6 +6,8 @@ using namespace std;
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include <set>
+#include <algorithm>
 #include <SDL2/SDL.h>
 #include "config.h"
 

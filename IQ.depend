@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1522999621 source:/home/kuribohkute/workspace/C++/IQ/CreateWindows.cpp
+1523103012 source:/home/kuribohkute/workspace/C++/IQ/CreateWindows.cpp
 	"CreateWindows.h"
 
 1522999611 /home/kuribohkute/workspace/C++/IQ/CreateWindows.h
@@ -7,7 +7,7 @@
 	<string>
 	"config.h"
 
-1523098114 /home/kuribohkute/workspace/C++/IQ/config.h
+1523102151 /home/kuribohkute/workspace/C++/IQ/config.h
 	<string>
 
 1523097568 source:/home/kuribohkute/workspace/C++/IQ/EventHandler.cpp
@@ -22,15 +22,17 @@
 1523095468 source:/home/kuribohkute/workspace/C++/IQ/main.cpp
 	"gameEngine.h"
 
-1523097931 /home/kuribohkute/workspace/C++/IQ/gamePresenter.h
+1523101985 /home/kuribohkute/workspace/C++/IQ/gamePresenter.h
 	<sstream>
 	<vector>
 	<fstream>
 	<iostream>
+	<set>
+	<algorithm>
 	<SDL2/SDL.h>
 	"config.h"
 
-1523098059 source:/home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp
+1523103114 source:/home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp
 	"gamePresenter.h"
 
 1523097420 source:/home/kuribohkute/workspace/C++/IQ/buttons.cpp
@@ -48,6 +50,6 @@
 	"gamePresenter.h"
 	"buttons.h"
 
-1523097722 source:/home/kuribohkute/workspace/C++/IQ/gameEngine.cpp
+1523101635 source:/home/kuribohkute/workspace/C++/IQ/gameEngine.cpp
 	"gameEngine.h"
 

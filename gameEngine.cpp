@@ -97,7 +97,6 @@ namespace myNamespace {
 
                 levelUp = false;
                 processlevel (New.window, level, stopGame, levelUp, backMenu);
-
                 started = false;
             }
 

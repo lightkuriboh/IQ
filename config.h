@@ -17,6 +17,6 @@ const string destination_link = "img/destination.bmp";
 const string block_link = "img/block.bmp";
 const string back_link = "img/back.bmp";
 
-const int maxLevel = 1;
+const int maxLevel = 2;
 
 #endif // CONFIG_H_INCLUDED

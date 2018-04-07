@@ -4,6 +4,10 @@
 using namespace myNamespace;
 using namespace std;
 
+bool cmp (const pair <int, int> &a, const pair <int, int> &b) {
+    return a.second > b.second;
+}
+
 gameInfo :: gameInfo (const int level, SDL_Window *&window) {
     stringstream ss;
     ss << level;
@@ -17,15 +21,15 @@ gameInfo :: gameInfo (const int level, SDL_Window *&window) {
 
     ifstream fi;
     int x, y;
-    fi.open(("bin/level" + levelNow + "/block.txt").c_str());
+    fi.open(("levels/level" + levelNow + "/block.txt").c_str());
     while (fi >> x >> y) { block.push_back(make_pair(x, y)); }
     fi.close ();
     //--------------------------------------------------------------------
-    fi.open(("bin/level" + levelNow + "/ball.txt").c_str());
+    fi.open(("levels/level" + levelNow + "/ball.txt").c_str());
     while (fi >> x >> y) { ball.push_back(make_pair(x, y)); }
     fi.close ();
     //--------------------------------------------------------------------
-    fi.open(("bin/level" + levelNow + "/destination.txt").c_str());
+    fi.open(("levels/level" + levelNow + "/destination.txt").c_str());
     while (fi >> x >> y) { destination.push_back(make_pair(x, y)); }
     fi.close ();
     //--------------------------------------------------------------------
@@ -37,21 +41,37 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
     memset (state, false, sizeof(state));
     for (auto info: block)
         state [info.first][info.second] = true;
-
+    //------------------------------------------------------------------
+    sort (ball.begin(), ball.end(), cmp); // sort balls to easy manage
+    set <pair <int, int> > isBall;
+    isBall.clear();
+    for (auto balls: ball) {
+        isBall.insert (balls);
+    }
+    //------------------------------------------------------------------
+    //SDL_RenderClear (renderer);
+    //------------------------------------------------------------------
     int cnt;
     do {
 
         presentFrame(window);
         presentGameState(window);
+
         cnt = 0;
         for (int i = 0; i < int(ball.size()); i++) {
-            if (ball[i].second + 1 < 11 && state[ball[i].first][ball[i].second + 1] == false) {
-                ball[i].second++;
-                cnt++;
+            if (isBall.find (make_pair(ball[i].first, ball[i].second + 1)) == isBall.end()) { // is not another ball
+
+                if (ball[i].second + 1 < 11 && state[ball[i].first][ball[i].second + 1] == false) {
+
+                    isBall.erase(ball[i]);
+                    isBall.insert (make_pair(ball[i].first, ball[i].second + 1));
+                    ball[i].second++;
+                    cnt++;
+                }
             }
         }
 
-        SDL_Delay (100);
+        SDL_Delay (200);
 
     } while (cnt > 0);
 }
@@ -93,6 +113,9 @@ void gameInfo :: presentImage (SDL_Window *& window, const SDL_Rect r, const str
     texture = SDL_CreateTextureFromSurface(renderer, background);
 
     SDL_RenderCopy (renderer, texture, NULL, &r);
+
+    SDL_FreeSurface (background);
+    SDL_DestroyTexture (texture);
 }
 
 void gameInfo :: presentFrame (SDL_Window *&window) {
@@ -135,9 +158,9 @@ void gameInfo :: presentGameState (SDL_Window *&window) {
 }
 
 bool gameInfo :: completeLevel () {
-    for (auto balls: ball) {
+    for (auto destinations: destination) {
         bool found = false;
-        for (auto destinations: destination)
+        for (auto balls: ball)
             if (destinations.first == balls.first && destinations.second == balls.second)
                 found = true;
         if (!found) return false;
