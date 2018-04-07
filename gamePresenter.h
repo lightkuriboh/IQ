@@ -20,6 +20,7 @@ namespace myNamespace {
             void RotateLeftAll  ();
             void RotateRightAll ();
             void updateAllState (SDL_Window *&window);
+            bool completeLevel ();
 
         private:
             SDL_Renderer *renderer;

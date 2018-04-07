@@ -54,8 +54,7 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
 }
 
 void gameInfo :: RotateRight (vector <pair <int, int> > &v) {
-    int w = 10,
-        h = 10;
+    int h = 10;
     for (int i = 0; i < int(v.size()); i++) {
         int tmp = v[i].second;
         v[i].second = v[i].first;
@@ -64,8 +63,7 @@ void gameInfo :: RotateRight (vector <pair <int, int> > &v) {
 }
 
 void gameInfo :: RotateLeft (vector <pair <int, int> > &v) {
-    int w = 10,
-        h = 10;
+    int w = 10;
     for (int i = 0; i < int(v.size()); i++) {
         int tmp = v[i].first;
         v[i].first = v[i].second;
@@ -112,7 +110,7 @@ void gameInfo :: presentGameState (SDL_Window *&window) {
         blocks.w = blocks.h = eachSize;
         blocks.x = positionFrame.x + (pos.first - 1) * eachSize;
         blocks.y = positionFrame.y + (pos.second - 1) * eachSize;
-        presentImage(window, blocks, "img/block.bmp");
+        presentImage(window, blocks, block_link);
     }
 
     for (auto pos: destination) {
@@ -120,7 +118,7 @@ void gameInfo :: presentGameState (SDL_Window *&window) {
         destinations.w = destinations.h = eachSize;
         destinations.x = positionFrame.x + (pos.first - 1) * eachSize;
         destinations.y = positionFrame.y + (pos.second - 1) * eachSize;
-        presentImage(window, destinations, "img/destination.bmp");
+        presentImage(window, destinations, destination_link);
     }
 
     for (auto pos: ball) {
@@ -128,8 +126,19 @@ void gameInfo :: presentGameState (SDL_Window *&window) {
         balls.w = balls.h = eachSize;
         balls.x = positionFrame.x + (pos.first - 1) * eachSize;
         balls.y = positionFrame.y + (pos.second - 1) * eachSize;
-        presentImage(window, balls, "img/ball.bmp");
+        presentImage(window, balls, ball_link);
     }
     SDL_RenderPresent(renderer);
 }
 
+bool gameInfo :: completeLevel () {
+    for (auto balls: ball) {
+        bool found = false;
+        for (auto destinations: destination)
+            if (destinations.first == balls.first && destinations.second == balls.second)
+                found = true;
+        if (!found) return false;
+    }
+    SDL_DestroyRenderer (renderer);
+    return true;
+}

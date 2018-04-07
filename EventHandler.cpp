@@ -34,6 +34,20 @@ namespace myNamespace {
         return inRect (pos.first, pos.second, button.r);
     }
 
+    bool clickRotateLeft (const SDL_Event & event) {
+        RotateButton RotateLeft;
+        RotateLeft.init ("left");
+        pair <int, int> pos = mouseClickLeft(event);
+        return inRect (pos.first, pos.second, RotateLeft.r);
+    }
+
+    bool clickRotateRight (const SDL_Event & event) {
+        RotateButton RotateRight;
+        RotateRight.init ("Right");
+        pair <int, int> pos = mouseClickLeft(event);
+        return inRect (pos.first, pos.second, RotateRight.r);
+    }
+
     bool quit (const SDL_Event &event) {
 
         if ( 0 || event.type == SDL_QUIT ) return true;

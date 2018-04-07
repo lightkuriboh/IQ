@@ -7,27 +7,22 @@
 	<string>
 	"config.h"
 
-1523093101 /home/kuribohkute/workspace/C++/IQ/config.h
+1523096166 /home/kuribohkute/workspace/C++/IQ/config.h
 	<string>
 
-1523093346 source:/home/kuribohkute/workspace/C++/IQ/EventHandler.cpp
+1523093940 source:/home/kuribohkute/workspace/C++/IQ/EventHandler.cpp
 	"EventHandler.h"
 
-1522998330 /home/kuribohkute/workspace/C++/IQ/EventHandler.h
+1523093859 /home/kuribohkute/workspace/C++/IQ/EventHandler.h
 	<iostream>
 	<SDL2/SDL.h>
 	"CreateWindows.h"
 	"buttons.h"
 
-1523093610 source:/home/kuribohkute/workspace/C++/IQ/main.cpp
-	"CreateWindows.h"
-	"EventHandler.h"
-	"config.h"
-	"gamePresenter.h"
-	"buttons.h"
-	<thread>
+1523095468 source:/home/kuribohkute/workspace/C++/IQ/main.cpp
+	"gameEngine.h"
 
-1523083042 /home/kuribohkute/workspace/C++/IQ/gamePresenter.h
+1523095886 /home/kuribohkute/workspace/C++/IQ/gamePresenter.h
 	<sstream>
 	<vector>
 	<fstream>
@@ -35,13 +30,24 @@
 	<SDL2/SDL.h>
 	"config.h"
 
-1523082426 source:/home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp
+1523096370 source:/home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp
 	"gamePresenter.h"
 
-1523093483 source:/home/kuribohkute/workspace/C++/IQ/buttons.cpp
+1523093730 source:/home/kuribohkute/workspace/C++/IQ/buttons.cpp
 	"buttons.h"
 
 1523093442 /home/kuribohkute/workspace/C++/IQ/buttons.h
 	"config.h"
 	<SDL2/SDL.h>
+
+1523095612 /home/kuribohkute/workspace/C++/IQ/gameEngine.h
+	"SDL2/SDL.h"
+	"CreateWindows.h"
+	"EventHandler.h"
+	"config.h"
+	"gamePresenter.h"
+	"buttons.h"
+
+1523096358 source:/home/kuribohkute/workspace/C++/IQ/gameEngine.cpp
+	"gameEngine.h"
 
