@@ -35,17 +35,23 @@ namespace myNamespace {
         }
     }
 
+    void initGameMenu (UI &thisUI) {
+
+        thisUI._make_main_windows ("IQ", mainWindowsWidth, mainWindowsHeight);
+        thisUI.initBackground(thisUI.window, background_link);
+
+        StartButton myButtonStart;
+        myButtonStart.init();
+        myButtonStart.createButton(thisUI.window);
+
+    }
+
     void StartOneThread (const int &height, const int &width) {
 
         bool stopGame = false;
 
         UI New;
-        New._make_main_windows ("IQ", width, height);
-        New.initBackground(New.window, background_link);
-
-        StartButton myButtonStart;
-        myButtonStart.init();
-        myButtonStart.createButton(New.window);
+        initGameMenu (New);
 
         RotateButton myRotateRightButton;
         myRotateRightButton.init ("right");

@@ -8,9 +8,12 @@
 #include "gamePresenter.h"
 #include "buttons.h"
 
+using namespace myNamespace;
+
 namespace myNamespace {
     void processLevel (SDL_Window *&window, int &level, bool &stopGame, bool &levelUp);
     void StartOneThread (const int &height, const int &width);
+    void initGameMenu (UI &thisUI);
 }
 
 #endif // GAMEENGINE_H_INCLUDED
