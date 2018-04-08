@@ -33,7 +33,7 @@ namespace myNamespace {
                     return;
                 }
                 if (!levelUp && newGame.completeLevel () ) {
-                    printf("Level %d Complete!\n", level);
+                    //printf("Level %d Complete!\n", level);
                     levelUp = true;
                     newGame.displayComplete (window);
                     SDL_Delay (2000);

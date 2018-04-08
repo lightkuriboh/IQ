@@ -49,8 +49,7 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
         isBall.insert (balls);
     }
     //------------------------------------------------------------------
-    //SDL_RenderClear (renderer);
-    //------------------------------------------------------------------
+
     int cnt;
     do {
 
@@ -67,13 +66,14 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
 
                     isBall.erase(ball[i]);
                     isBall.insert (make_pair(ball[i].first, ball[i].second + 1));
+
                     ball[i].second++;
                     cnt++;
                 }
             }
         }
 
-        SDL_Delay (200);
+        SDL_Delay (20);
 
     } while (cnt > 0);
 }
