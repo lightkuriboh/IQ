@@ -39,6 +39,8 @@
 		<Unit filename="buttons.cpp" />
 		<Unit filename="buttons.h" />
 		<Unit filename="config.h" />
+		<Unit filename="gameEngine.cpp" />
+		<Unit filename="gameEngine.h" />
 		<Unit filename="gamePresenter.cpp" />
 		<Unit filename="gamePresenter.h" />
 		<Unit filename="main.cpp" />

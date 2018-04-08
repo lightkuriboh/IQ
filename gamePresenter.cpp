@@ -108,6 +108,22 @@ void gameInfo :: RotateRightAll () {
     RotateRight (block);
 }
 
+void gameInfo::presentLevelInfo (SDL_Window *&window, const int &level) {
+    stringstream ss;
+    ss << level;
+    string levelNow = "";
+    ss >> levelNow;
+    levelNow = "img/level" + levelNow + ".bmp";
+
+    SDL_Rect r;
+
+    r.w = r.h = mainWindowsWidth * 0.1;
+    r.y = mainWindowsHeight * 0.85 - r.h * 0.5;
+    r.x = mainWindowsWidth * 0.5 - r.w * 0.5;
+
+    presentImage (window, r, levelNow);
+}
+
 void gameInfo :: presentImage (SDL_Window *& window, const SDL_Rect r, const string &image_link) {
 
     SDL_Surface *background = SDL_LoadBMP(image_link.c_str());
@@ -131,8 +147,8 @@ void gameInfo :: presentImage (SDL_Window *& window, const SDL_Rect r, const str
 
 void gameInfo :: presentIFrame (SDL_Window *&window) {
     SDL_Rect iframe;
-    iframe.w = mainWindowsWidth * 0.5;
-    iframe.h = iframe.w;
+    iframe.w = mainWindowsWidth * 0.55;
+    iframe.h = iframe.w * 0.89;
     iframe.x = mainWindowsWidth * 0.5 - iframe.w * 0.5;
     iframe.y = mainWindowsHeight * 0.4 - iframe.h * 0.5;
 

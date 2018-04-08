@@ -26,6 +26,7 @@ namespace myNamespace {
             void displayComplete (SDL_Window *&window);
             bool completeLevel ();
             void freeResource ();
+            void presentLevelInfo (SDL_Window *&window, const int &level);
 
 
         private:

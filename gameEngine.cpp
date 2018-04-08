@@ -8,6 +8,7 @@ namespace myNamespace {
 
         gameInfo newGame (level, window);
 
+        newGame.presentLevelInfo (window, level);
         newGame.updateAllState (window);
 
         while (!stopGame) {
