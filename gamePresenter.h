@@ -10,35 +10,37 @@ using namespace std;
 #include <algorithm>
 #include <SDL2/SDL.h>
 #include "config.h"
+#include "buttons.h"
 
 namespace myNamespace {
+
     class gameInfo {
         public:
-
+            SDL_Renderer *renderer;
             vector <pair <int, int> > block;
             vector <pair <int, int> > ball;
             vector <pair <int, int> > destination;
 
-            gameInfo (const int level, SDL_Window *&window);
-            void RotateLeftAll  ();
-            void RotateRightAll ();
-            void updateAllState (SDL_Window *&window);
-            void displayComplete (SDL_Window *&window);
+            gameInfo (const int level);
+            void RotateLeftAll  (const int &level);
+            void RotateRightAll (const int &level);
+            void updateAllState (const double &angle);
+            void displayComplete ();
             bool completeLevel ();
-            void freeResource ();
-            void presentLevelInfo (SDL_Window *&window, const int &level);
+            void presentAllOtherThings (const int &level);
 
 
         private:
+            SDL_Point center;
             SDL_Texture *texture;
             SDL_Rect positionFrame;
-            SDL_Renderer *renderer;
-            void presentIFrame (SDL_Window *&window);
-            void presentFrameBackground (SDL_Window *&window, const bool &levelComplete);
-            void presentGameState (SDL_Window *&window);
+            void presentIFrame (const double &angle);
+            void presentFrameBackground (const bool &levelComplete, const double &angle);
+            void presentGameState (const double &angle);
             void RotateLeft (vector <pair <int, int> > &v);
             void RotateRight (vector <pair <int, int> > &v);
-            void presentImage (SDL_Window *&window, const SDL_Rect r, const string &image_link);
+            void presentImage (const SDL_Rect r, const string &image_link, const double &angle);
+            void presentLevelInfo (const int &level);
     };
 }
 

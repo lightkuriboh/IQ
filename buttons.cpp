@@ -33,28 +33,14 @@ void BackButton :: init () {
     link = back_link;
 }
 
-void button::createButton (SDL_Window *&window) {
-
-    renderer =  SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED);
+void button::createButton (SDL_Renderer *&renderer) {
 
     background = SDL_LoadBMP( link.c_str() );
     SDL_SetColorKey( background, 1, SDL_MapRGB( background->format, 255, 0, 255 ) );
 
-    if (background == NULL) {
-        SDL_ShowSimpleMessageBox(0, "Background init error!", SDL_GetError(), window);
-    }
-
     texture = SDL_CreateTextureFromSurface(renderer,background);
-
-    if(texture == NULL) {
-        SDL_ShowSimpleMessageBox(0, "Texture init error", SDL_GetError(), window);
-    }
 
     SDL_RenderCopy (renderer, texture, NULL, &(r) );
 
     SDL_DestroyTexture(texture);
-
-    SDL_RenderPresent(renderer);
-
-    SDL_DestroyRenderer(renderer);
 }

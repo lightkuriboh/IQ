@@ -3,6 +3,7 @@
 
 using namespace std;
 #include <string>
+#include <SDL2/SDL.h>
 
 const int mainWindowsWidth  = 960;
 const int mainWindowsHeight = 640;
@@ -20,5 +21,9 @@ const string block_link = "img/block.bmp";
 const string back_link = "img/back.bmp";
 
 const int maxLevel = 5;
+
+namespace myNamespace {
+    extern SDL_Window *window;
+}
 
 #endif // CONFIG_H_INCLUDED

@@ -3,13 +3,13 @@
 using namespace myNamespace;
 
 namespace myNamespace {
+    SDL_Window *window;
+    void processlevel (int &level, bool &stopGame, bool &levelUp, bool &backMenu) {
 
-    void processlevel (SDL_Window *&window, int &level, bool &stopGame, bool &levelUp, bool &backMenu) {
+        gameInfo newGame (level);
 
-        gameInfo newGame (level, window);
-
-        newGame.presentLevelInfo (window, level);
-        newGame.updateAllState (window);
+        newGame.presentAllOtherThings (level);
+        newGame.updateAllState (0);
 
         while (!stopGame) {
 
@@ -20,24 +20,23 @@ namespace myNamespace {
                     stopGame = true;
                 }
                 if (clickRotateLeft (event) ) {
-                    newGame.RotateLeftAll ();
-                    newGame.updateAllState (window);
+                    newGame.RotateLeftAll (level);
+                    newGame.presentAllOtherThings(level);
+                    newGame.updateAllState (0);
                 }
                 if (clickRotateRight (event)) {
-                    newGame.RotateRightAll ();
-                    newGame.updateAllState (window);
+                    newGame.RotateRightAll (level);
+                    newGame.presentAllOtherThings(level);
+                    newGame.updateAllState (0);
                 }
                 if (clickBackMenu (event) ) {
                     backMenu = true;
-                    newGame.freeResource ();
                     return;
                 }
                 if (!levelUp && newGame.completeLevel () ) {
-                    //printf("Level %d Complete!\n", level);
                     levelUp = true;
-                    newGame.displayComplete (window);
+                    newGame.displayComplete ();
                     SDL_Delay (2000);
-                    newGame.freeResource ();
                     return;
                 }
 
@@ -47,12 +46,16 @@ namespace myNamespace {
 
     void initGameMenu (UI &thisUI) {
 
-        //thisUI._make_main_windows ("IQ", mainWindowsWidth, mainWindowsHeight);
-        thisUI.initBackground(thisUI.window, background_link);
+
+
+        thisUI.renderer = SDL_CreateRenderer(window, -1, 0);
+        thisUI.initBackground(background_link);
 
         StartButton myButtonStart;
         myButtonStart.init();
-        myButtonStart.createButton(thisUI.window);
+        myButtonStart.createButton(thisUI.renderer);
+        SDL_RenderPresent(thisUI.renderer);
+        SDL_DestroyRenderer(thisUI.renderer);
 
     }
 
@@ -87,22 +90,14 @@ namespace myNamespace {
 
             if (started == true || levelUp) {
 
-                New.initBackground(New.window, background_link);
-
-                RotateButton myRotateLeftButton;
-                myRotateLeftButton.init ("left");
-                myRotateLeftButton.createButton (New.window);
-
-                RotateButton myRotateRightButton;
-                myRotateRightButton.init ("right");
-                myRotateRightButton.createButton (New.window);
-
-                BackButton myBackButton;
-                myBackButton.init ();
-                myBackButton.createButton (New.window);
+                SDL_Renderer *renderer;
+                renderer = SDL_CreateRenderer(window, -1, 0);
+                New.initBackground(background_link);
+                SDL_RenderPresent(renderer);
+                SDL_DestroyRenderer(renderer);
 
                 levelUp = false;
-                processlevel (New.window, level, stopGame, levelUp, backMenu);
+                processlevel (level, stopGame, levelUp, backMenu);
                 started = false;
             }
 
@@ -112,7 +107,7 @@ namespace myNamespace {
                 }
                 else {
                     level = 1;
-                    //break;
+                    break;
                 }
             }
 

@@ -8,7 +8,7 @@ bool cmp (const pair <int, int> &a, const pair <int, int> &b) {
     return a.second > b.second;
 }
 
-gameInfo :: gameInfo (const int level, SDL_Window *&window) {
+gameInfo :: gameInfo (const int level) {
     stringstream ss;
     ss << level;
     string levelNow = "";
@@ -33,10 +33,16 @@ gameInfo :: gameInfo (const int level, SDL_Window *&window) {
     while (fi >> x >> y) { destination.push_back(make_pair(x, y)); }
     fi.close ();
     //--------------------------------------------------------------------
-    renderer = SDL_CreateRenderer (window, -1, 0);
+    positionFrame.w = mainWindowsWidth * 0.36;
+    positionFrame.h = positionFrame.w;
+    positionFrame.x = mainWindowsWidth * 0.5 - positionFrame.w * 0.5;
+    positionFrame.y = mainWindowsHeight * 0.4 - positionFrame.h * 0.5;
+    //--------------------------------------------------------------------
+    center.x = positionFrame.x + positionFrame.w * 0.5;
+    center.y = positionFrame.y + positionFrame.h * 0.5;
 }
 
-void gameInfo :: updateAllState (SDL_Window *&window) {
+void gameInfo :: updateAllState (const double &angle) {
     bool state[11][11];
     memset (state, false, sizeof(state));
     for (auto info: block)
@@ -53,9 +59,9 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
     int cnt;
     do {
 
-        presentFrameBackground(window, false);
-        presentGameState(window);
-        presentIFrame (window);
+        presentFrameBackground(false, angle);
+        presentGameState(angle);
+        presentIFrame (angle);
         SDL_RenderPresent(renderer);
 
         cnt = 0;
@@ -76,6 +82,7 @@ void gameInfo :: updateAllState (SDL_Window *&window) {
         SDL_Delay (20);
 
     } while (cnt > 0);
+    SDL_DestroyRenderer(renderer);
 }
 
 void gameInfo :: RotateRight (vector <pair <int, int> > &v) {
@@ -96,82 +103,87 @@ void gameInfo :: RotateLeft (vector <pair <int, int> > &v) {
     }
 }
 
-void gameInfo :: RotateLeftAll () {
+void gameInfo :: RotateLeftAll (const int &level) {
+    for (double angle = -10; angle >= -90; angle -= 10) {
+        presentAllOtherThings (level);
+        updateAllState ( angle);
+        SDL_Delay (0);
+    }
     RotateLeft (ball);
     RotateLeft (destination);
     RotateLeft (block);
 }
 
-void gameInfo :: RotateRightAll () {
+void gameInfo :: RotateRightAll (const int &level) {
+    for (double angle = 10; angle <= 90; angle += 10) {
+        presentAllOtherThings (level);
+        updateAllState (angle);
+        SDL_Delay (0);
+    }
     RotateRight (ball);
     RotateRight (destination);
     RotateRight (block);
 }
 
-void gameInfo::presentLevelInfo (SDL_Window *&window, const int &level) {
+void gameInfo::presentLevelInfo (const int &level) {
     stringstream ss;
     ss << level;
     string levelNow = "";
     ss >> levelNow;
     levelNow = "img/level" + levelNow + ".bmp";
 
-    SDL_Rect r;
+    SDL_Rect r, rbg;
 
     r.w = r.h = mainWindowsWidth * 0.1;
     r.y = mainWindowsHeight * 0.85 - r.h * 0.5;
     r.x = mainWindowsWidth * 0.5 - r.w * 0.5;
 
-    presentImage (window, r, levelNow);
+    rbg.x = rbg.y = 0;
+    rbg.w = mainWindowsWidth;
+    rbg.h = mainWindowsHeight;
+
+    presentImage (rbg, background_link, 0);
+    presentImage (r, levelNow, 0);
 }
 
-void gameInfo :: presentImage (SDL_Window *& window, const SDL_Rect r, const string &image_link) {
+void gameInfo :: presentImage (const SDL_Rect r, const string &image_link, const double&angle) {
 
     SDL_Surface *background = SDL_LoadBMP(image_link.c_str());
 
-    if (background == NULL) {
-        SDL_ShowSimpleMessageBox(0, "Background init error!", SDL_GetError(), window);
-    }
-
     texture = SDL_CreateTextureFromSurface(renderer, background);
 
-    if(texture == NULL) {
-        SDL_ShowSimpleMessageBox(0, "Texture init error", SDL_GetError(), window);
-    }
+    SDL_Point realCenter;
+    realCenter.x = center.x - r.x;
+    realCenter.y = center.y - r.y;
 
-    SDL_RenderCopy (renderer, texture, NULL, &r);
+    SDL_RenderCopyEx (renderer, texture, NULL, &r, angle, &realCenter, SDL_FLIP_NONE);
 
     SDL_FreeSurface (background);
     SDL_DestroyTexture (texture);
 
 }
 
-void gameInfo :: presentIFrame (SDL_Window *&window) {
+void gameInfo :: presentIFrame (const double &angle) {
     SDL_Rect iframe;
-    iframe.w = mainWindowsWidth * 0.55;
-    iframe.h = iframe.w * 0.89;
+    iframe.w = mainWindowsWidth * 0.44;
+    iframe.h = iframe.w;
     iframe.x = mainWindowsWidth * 0.5 - iframe.w * 0.5;
     iframe.y = mainWindowsHeight * 0.4 - iframe.h * 0.5;
-
-    presentImage (window, iframe, frame_link);
+    presentImage (iframe, frame_link, angle);
 
 }
 
-void gameInfo :: presentFrameBackground (SDL_Window *&window, const bool &levelComplete) {
-
-    positionFrame.w = mainWindowsWidth * 0.36;
-    positionFrame.h = positionFrame.w;
-    positionFrame.x = mainWindowsWidth * 0.5 - positionFrame.w * 0.5;
-    positionFrame.y = mainWindowsHeight * 0.4 - positionFrame.h * 0.5;
+void gameInfo :: presentFrameBackground (const bool &levelComplete, const double &angle) {
 
     if (levelComplete == false){
-        presentImage (window, positionFrame, bgFrame_link);
+        presentImage (positionFrame, bgFrame_link, angle);
     }
     else {
-        presentImage (window, positionFrame, completeLevel_link);
+        presentImage (positionFrame, completeLevel_link, angle);
     }
 }
 
-void gameInfo :: presentGameState (SDL_Window *&window) {
+void gameInfo :: presentGameState (const double &angle) {
 
     double eachSize = positionFrame.h / 10.0;
     for (auto pos: block) {
@@ -179,7 +191,7 @@ void gameInfo :: presentGameState (SDL_Window *&window) {
         blocks.w = blocks.h = eachSize;
         blocks.x = positionFrame.x + (pos.first - 1) * eachSize;
         blocks.y = positionFrame.y + (pos.second - 1) * eachSize;
-        presentImage(window, blocks, block_link);
+        presentImage(blocks, block_link, angle);
     }
 
     for (auto pos: destination) {
@@ -187,7 +199,7 @@ void gameInfo :: presentGameState (SDL_Window *&window) {
         destinations.w = destinations.h = eachSize;
         destinations.x = positionFrame.x + (pos.first - 1) * eachSize;
         destinations.y = positionFrame.y + (pos.second - 1) * eachSize;
-        presentImage(window, destinations, destination_link);
+        presentImage(destinations, destination_link, angle);
     }
 
     for (auto pos: ball) {
@@ -195,8 +207,27 @@ void gameInfo :: presentGameState (SDL_Window *&window) {
         balls.w = balls.h = eachSize;
         balls.x = positionFrame.x + (pos.first - 1) * eachSize;
         balls.y = positionFrame.y + (pos.second - 1) * eachSize;
-        presentImage(window, balls, ball_link);
+        presentImage(balls, ball_link, angle);
     }
+}
+
+void gameInfo:: presentAllOtherThings ( const int &level) {
+
+    renderer = SDL_CreateRenderer(window, -1, 0);
+
+    presentLevelInfo(level);
+    RotateButton myRotateLeftButton;
+    myRotateLeftButton.init ("left");
+    myRotateLeftButton.createButton (renderer);
+
+    RotateButton myRotateRightButton;
+    myRotateRightButton.init ("right");
+    myRotateRightButton.createButton (renderer);
+
+    BackButton myBackButton;
+    myBackButton.init ();
+    myBackButton.createButton (renderer);
+
 }
 
 bool gameInfo :: completeLevel () {
@@ -210,12 +241,10 @@ bool gameInfo :: completeLevel () {
     return true;
 }
 
-void gameInfo :: displayComplete (SDL_Window *&window) {
-    presentFrameBackground (window, true);
-    presentIFrame (window);
+void gameInfo :: displayComplete () {
+    renderer = SDL_CreateRenderer(window, -1, 0);
+    presentFrameBackground (true, 0);
+    presentIFrame (0);
     SDL_RenderPresent (renderer);
-}
-
-void gameInfo :: freeResource () {
-    SDL_DestroyRenderer (renderer);
+    SDL_DestroyRenderer(renderer);
 }
