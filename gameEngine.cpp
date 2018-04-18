@@ -8,8 +8,7 @@ namespace myNamespace {
 
         gameInfo newGame (level);
 
-        newGame.presentAllOtherThings (level);
-        newGame.updateAllState (0);
+        newGame.update(0, level);
 
         while (!stopGame) {
 
@@ -21,13 +20,11 @@ namespace myNamespace {
                 }
                 if (clickRotateLeft (event) ) {
                     newGame.RotateLeftAll (level);
-                    newGame.presentAllOtherThings(level);
-                    newGame.updateAllState (0);
+                    newGame.update(0, level);
                 }
                 if (clickRotateRight (event)) {
                     newGame.RotateRightAll (level);
-                    newGame.presentAllOtherThings(level);
-                    newGame.updateAllState (0);
+                    newGame.update(0, level);
                 }
                 if (clickBackMenu (event) ) {
                     backMenu = true;

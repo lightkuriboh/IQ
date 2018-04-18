@@ -24,16 +24,16 @@ namespace myNamespace {
             gameInfo (const int level);
             void RotateLeftAll  (const int &level);
             void RotateRightAll (const int &level);
-            void updateAllState (const double &angle);
+            void update(const double &angle, const int &level);
             void displayComplete ();
             bool completeLevel ();
-            void presentAllOtherThings (const int &level);
-
 
         private:
             SDL_Point center;
             SDL_Texture *texture;
             SDL_Rect positionFrame;
+            void presentAllOtherThings (const int &level);
+            void updateAllState (const double &angle);
             void presentIFrame (const double &angle);
             void presentFrameBackground (const bool &levelComplete, const double &angle);
             void presentGameState (const double &angle);

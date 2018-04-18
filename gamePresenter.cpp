@@ -105,8 +105,7 @@ void gameInfo :: RotateLeft (vector <pair <int, int> > &v) {
 
 void gameInfo :: RotateLeftAll (const int &level) {
     for (double angle = -10; angle >= -90; angle -= 10) {
-        presentAllOtherThings (level);
-        updateAllState ( angle);
+        update(angle, level);
         SDL_Delay (0);
     }
     RotateLeft (ball);
@@ -116,8 +115,7 @@ void gameInfo :: RotateLeftAll (const int &level) {
 
 void gameInfo :: RotateRightAll (const int &level) {
     for (double angle = 10; angle <= 90; angle += 10) {
-        presentAllOtherThings (level);
-        updateAllState (angle);
+        update(angle, level);
         SDL_Delay (0);
     }
     RotateRight (ball);
@@ -228,6 +226,11 @@ void gameInfo:: presentAllOtherThings ( const int &level) {
     myBackButton.init ();
     myBackButton.createButton (renderer);
 
+}
+
+void gameInfo:: update(const double &angle, const int &level) {
+    presentAllOtherThings(level);
+    updateAllState(angle);
 }
 
 bool gameInfo :: completeLevel () {
