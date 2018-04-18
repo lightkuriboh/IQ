@@ -41,6 +41,6 @@ void button::createButton (SDL_Renderer *&renderer) {
     texture = SDL_CreateTextureFromSurface(renderer,background);
 
     SDL_RenderCopy (renderer, texture, NULL, &(r) );
-
+    SDL_FreeSurface(background);
     SDL_DestroyTexture(texture);
 }

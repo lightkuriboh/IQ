@@ -31,7 +31,7 @@ void UI::initBackground (const string &background_link) {
     texture = SDL_CreateTextureFromSurface(renderer,background);
 
     SDL_RenderCopy (renderer, texture, NULL, NULL);
-
+    SDL_FreeSurface(background);
     SDL_DestroyTexture(texture);
 
     return;

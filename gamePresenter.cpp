@@ -42,49 +42,6 @@ gameInfo :: gameInfo (const int level) {
     center.y = positionFrame.y + positionFrame.h * 0.5;
 }
 
-void gameInfo :: updateAllState (const double &angle) {
-    bool state[11][11];
-    memset (state, false, sizeof(state));
-    for (auto info: block)
-        state [info.first][info.second] = true;
-    //------------------------------------------------------------------
-    sort (ball.begin(), ball.end(), cmp); // sort balls to easy manage
-    set <pair <int, int> > isBall;
-    isBall.clear();
-    for (auto balls: ball) {
-        isBall.insert (balls);
-    }
-    //------------------------------------------------------------------
-
-    int cnt;
-    do {
-
-        presentFrameBackground(false, angle);
-        presentGameState(angle);
-        presentIFrame (angle);
-        SDL_RenderPresent(renderer);
-
-        cnt = 0;
-        for (int i = 0; i < int(ball.size()); i++) {
-            if (isBall.find (make_pair(ball[i].first, ball[i].second + 1)) == isBall.end()) { // is not another ball
-
-                if (ball[i].second + 1 < 11 && state[ball[i].first][ball[i].second + 1] == false) {
-
-                    isBall.erase(ball[i]);
-                    isBall.insert (make_pair(ball[i].first, ball[i].second + 1));
-
-                    ball[i].second++;
-                    cnt++;
-                }
-            }
-        }
-
-        SDL_Delay (20);
-
-    } while (cnt > 0);
-    SDL_DestroyRenderer(renderer);
-}
-
 void gameInfo :: RotateRight (vector <pair <int, int> > &v) {
     int h = 10;
     for (int i = 0; i < int(v.size()); i++) {
@@ -211,8 +168,6 @@ void gameInfo :: presentGameState (const double &angle) {
 
 void gameInfo:: presentAllOtherThings ( const int &level) {
 
-    renderer = SDL_CreateRenderer(window, -1, 0);
-
     presentLevelInfo(level);
     RotateButton myRotateLeftButton;
     myRotateLeftButton.init ("left");
@@ -228,9 +183,53 @@ void gameInfo:: presentAllOtherThings ( const int &level) {
 
 }
 
+void gameInfo :: updateAllState (const double &angle) {
+    bool state[11][11];
+    memset (state, false, sizeof(state));
+    for (auto info: block)
+        state [info.first][info.second] = true;
+    //------------------------------------------------------------------
+    sort (ball.begin(), ball.end(), cmp); // sort balls to easy manage
+    set <pair <int, int> > isBall;
+    isBall.clear();
+    for (auto balls: ball) {
+        isBall.insert (balls);
+    }
+    //------------------------------------------------------------------
+
+    int cnt;
+    do {
+
+        presentFrameBackground(false, angle);
+        presentGameState(angle);
+        presentIFrame (angle);
+        SDL_RenderPresent(renderer);
+
+        cnt = 0;
+        for (int i = 0; i < int(ball.size()); i++) {
+            if (isBall.find (make_pair(ball[i].first, ball[i].second + 1)) == isBall.end()) { // is not another ball
+
+                if (ball[i].second + 1 < 11 && state[ball[i].first][ball[i].second + 1] == false) {
+
+                    isBall.erase(ball[i]);
+                    isBall.insert (make_pair(ball[i].first, ball[i].second + 1));
+
+                    ball[i].second++;
+                    cnt++;
+                }
+            }
+        }
+
+        SDL_Delay (20);
+
+    } while (cnt > 0);
+}
+
 void gameInfo:: update(const double &angle, const int &level) {
+    renderer = SDL_CreateRenderer(window, -1, 0);
     presentAllOtherThings(level);
     updateAllState(angle);
+    SDL_DestroyRenderer(renderer);
 }
 
 bool gameInfo :: completeLevel () {
