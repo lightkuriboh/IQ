@@ -45,7 +45,7 @@ namespace myNamespace {
 
 
 
-        thisUI.renderer = SDL_CreateRenderer(window, -1, 0);
+        thisUI.renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         thisUI.initBackground(background_link);
 
         StartButton myButtonStart;

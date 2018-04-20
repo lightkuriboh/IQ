@@ -36,7 +36,6 @@ void BackButton :: init () {
 void button::createButton (SDL_Renderer *&renderer) {
 
     background = SDL_LoadBMP( link.c_str() );
-    SDL_SetColorKey( background, 1, SDL_MapRGB( background->format, 255, 0, 255 ) );
 
     texture = SDL_CreateTextureFromSurface(renderer,background);
 

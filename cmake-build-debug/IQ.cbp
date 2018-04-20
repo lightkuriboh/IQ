@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="IQ"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/kuribohkute/workspace/C++/IQ/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/kuribohkute/workspace/C++/IQ/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/kuribohkute/workspace/C++/IQ/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IQ">
+				<Option output="/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/IQ" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kuribohkute/workspace/C++/IQ/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kuribohkute/workspace/C++/IQ/."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 IQ"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IQ/fast">
+				<Option output="/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/IQ" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kuribohkute/workspace/C++/IQ/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kuribohkute/workspace/C++/IQ/."/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 IQ/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/CreateWindows.cpp">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/CreateWindows.h">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/EventHandler.cpp">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/EventHandler.h">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/buttons.cpp">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/buttons.h">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/config.h">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/gameEngine.cpp">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/gameEngine.h">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/gamePresenter.h">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/main.cpp">
+			<Option target="IQ"/>
+		</Unit>
+		<Unit filename="/home/kuribohkute/workspace/C++/IQ/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

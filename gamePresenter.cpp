@@ -226,7 +226,7 @@ void gameInfo :: updateAllState (const double &angle) {
 }
 
 void gameInfo:: update(const double &angle, const int &level) {
-    renderer = SDL_CreateRenderer(window, -1, 0);
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     presentAllOtherThings(level);
     updateAllState(angle);
     SDL_DestroyRenderer(renderer);
@@ -244,7 +244,7 @@ bool gameInfo :: completeLevel () {
 }
 
 void gameInfo :: displayComplete () {
-    renderer = SDL_CreateRenderer(window, -1, 0);
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     presentFrameBackground (true, 0);
     presentIFrame (0);
     SDL_RenderPresent (renderer);

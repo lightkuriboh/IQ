@@ -13,7 +13,7 @@ void UI::initWindow (const string title, const int &width, const int &height) {
         return;
     }
 
-    window = SDL_CreateWindow("Renewed Hang Man",
+    window = SDL_CreateWindow("IQ",
                                 SDL_WINDOWPOS_UNDEFINED,
                                 SDL_WINDOWPOS_UNDEFINED,
                                 width, height,
@@ -53,16 +53,3 @@ void UI::_make_main_windows (const string title, const int &width, const int &he
     initWindow (title, width, height );
     return;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
