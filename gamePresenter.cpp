@@ -22,15 +22,24 @@ gameInfo :: gameInfo (const int level) {
     ifstream fi;
     int x, y;
     fi.open(("levels/level" + levelNow + "/block.txt").c_str());
-    while (fi >> x >> y) { block.push_back(make_pair(x, y)); }
+    while (fi >> x >> y) {
+        if (inrange(x, y))
+            block.push_back(make_pair(x, y));
+    }
     fi.close ();
     //--------------------------------------------------------------------
     fi.open(("levels/level" + levelNow + "/ball.txt").c_str());
-    while (fi >> x >> y) { ball.push_back(make_pair(x, y)); }
+    while (fi >> x >> y) {
+        if (inrange(x, y))
+            ball.push_back(make_pair(x, y));
+    }
     fi.close ();
     //--------------------------------------------------------------------
     fi.open(("levels/level" + levelNow + "/destination.txt").c_str());
-    while (fi >> x >> y) { destination.push_back(make_pair(x, y)); }
+    while (fi >> x >> y) {
+        if (inrange(x, y))
+            destination.push_back(make_pair(x, y));
+    }
     fi.close ();
     //--------------------------------------------------------------------
     positionFrame.w = mainWindowsWidth * 0.36;
@@ -138,6 +147,10 @@ void gameInfo :: presentFrameBackground (const bool &levelComplete, const double
     }
 }
 
+bool gameInfo :: inrange(const int &x, const int &y) {
+    return 0 < x && x <= 10 && 0 < y && y <= 10;
+}
+
 void gameInfo :: presentGameState (const double &angle) {
 
     double eachSize = positionFrame.h / 10.0;
@@ -189,7 +202,7 @@ void gameInfo :: updateAllState (const double &angle) {
     for (auto info: block)
         state [info.first][info.second] = true;
     //------------------------------------------------------------------
-    sort (ball.begin(), ball.end(), cmp); // sort balls to easy manage
+    //sort (ball.begin(), ball.end(), cmp); // sort balls to easy manage
     set <pair <int, int> > isBall;
     isBall.clear();
     for (auto balls: ball) {

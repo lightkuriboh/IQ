@@ -33,20 +33,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2794079-79fc-44d9-9003-38e7cd8559b1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/CreateWindows.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CreateWindows.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQ.depend" beforeDir="false" afterPath="$PROJECT_DIR$/IQ.depend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IQ.layout" beforeDir="false" afterPath="$PROJECT_DIR$/IQ.layout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/IQ" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/IQ" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/img/bg_frame2.bmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/buttons.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/buttons.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gameEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gameEngine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/gameEngine.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/gameEngine.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/gamePresenter.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/gamePresenter.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/IQ" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/IQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/levels/level1/ball.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/levels/level1/ball.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gamePresenter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gamePresenter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_tmp.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/CreateWindows.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/CreateWindows.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/buttons.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/buttons.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/gameEngine.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/gameEngine.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/gamePresenter.o" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/gamePresenter.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamePresenter.h" beforeDir="false" afterPath="$PROJECT_DIR$/gamePresenter.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,29 +62,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gameEngine.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gameEngine.cpp">
+      <file leaf-file-name="gamePresenter.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gamePresenter.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" column="81" selection-start-line="47" selection-start-column="81" selection-end-line="47" selection-end-column="81" />
+            <state relative-caret-position="-1117">
+              <caret line="172" column="25" selection-start-line="172" selection-start-column="25" selection-end-line="172" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CreateWindows.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CreateWindows.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-            </state>
-          </provider>
+      <file leaf-file-name="ball.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cmake-build-debug/levels/level1/ball.txt">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="gamePresenter.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gamePresenter.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+            <state relative-caret-position="165">
+              <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -124,8 +114,10 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/buttons.cpp" />
         <option value="$PROJECT_DIR$/gameEngine.cpp" />
-        <option value="$PROJECT_DIR$/gamePresenter.cpp" />
         <option value="$PROJECT_DIR$/CreateWindows.cpp" />
+        <option value="$PROJECT_DIR$/gamePresenter.h" />
+        <option value="$PROJECT_DIR$/gamePresenter.cpp" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/levels/level1/ball.txt" />
       </list>
     </option>
   </component>
@@ -156,6 +148,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -163,11 +156,33 @@
               <item name="IQ" type="b2602c69:ProjectViewProjectNode" />
               <item name="IQ" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="IQ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IQ" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IQ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IQ" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+              <item name="levels" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IQ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IQ" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+              <item name="levels" type="462c0819:PsiDirectoryNode" />
+              <item name="level1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IQ" type="b2602c69:ProjectViewProjectNode" />
+              <item name="IQ" type="462c0819:PsiDirectoryNode" />
+              <item name="obj" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,14 +225,16 @@
       <workItem from="1524201568493" duration="76000" />
       <workItem from="1524201742991" duration="1587000" />
       <workItem from="1524224236761" duration="1776000" />
+      <workItem from="1524326679249" duration="543000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4324000" />
+    <option name="totallyTimeSpent" value="4867000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="66" y="24" width="1300" height="744" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24615385" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -226,7 +243,7 @@
       <window_info anchor="bottom" id="TeamCity" order="7" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329653" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329653" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -247,6 +264,48 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gameEngine.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="81" selection-start-line="47" selection-start-column="81" selection-end-line="47" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamePresenter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/buttons.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CreateWindows.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -324,6 +383,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-223" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CreateWindows.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gameEngine.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="547">
+          <caret line="47" column="81" selection-start-line="47" selection-start-column="81" selection-end-line="47" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -331,38 +409,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gameEngine.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="81" selection-start-line="47" selection-start-column="81" selection-end-line="47" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gamePresenter.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        <state relative-caret-position="165">
+          <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-223" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gamePresenter.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="243" column="1" lean-forward="true" selection-start-line="243" selection-start-column="1" selection-end-line="243" selection-end-column="1" />
+        <state relative-caret-position="-1117">
+          <caret line="172" column="25" selection-start-line="172" selection-start-column="25" selection-end-line="172" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CreateWindows.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/levels/level1/ball.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

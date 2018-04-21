@@ -32,6 +32,7 @@ namespace myNamespace {
             SDL_Point center;
             SDL_Texture *texture;
             SDL_Rect positionFrame;
+            bool inrange(const int &x, const int &y);
             void presentAllOtherThings (const int &level);
             void updateAllState (const double &angle);
             void presentIFrame (const double &angle);
