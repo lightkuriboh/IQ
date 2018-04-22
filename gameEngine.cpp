@@ -32,8 +32,9 @@ namespace myNamespace {
                 }
                 if (!levelUp && newGame.completeLevel () ) {
                     levelUp = true;
+                    SDL_Delay (200);
                     newGame.displayComplete ();
-                    SDL_Delay (2000);
+                    SDL_Delay (1000);
                     return;
                 }
 
@@ -99,13 +100,7 @@ namespace myNamespace {
             }
 
             if (levelUp) {
-                if (level < maxLevel) {
-                    level++;
-                }
-                else {
-                    level = 1;
-                    break;
-                }
+                level++;
             }
 
             if (backMenu) {

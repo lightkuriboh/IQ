@@ -17,9 +17,9 @@ namespace myNamespace {
     class gameInfo {
         public:
             SDL_Renderer *renderer;
-            vector <pair <int, int> > block;
-            vector <pair <int, int> > ball;
-            vector <pair <int, int> > destination;
+            vector <pair <int, int> > blocks;
+            vector <pair <int, int> > balls;
+            vector <pair <int, int> > destinations;
 
             gameInfo (const int level);
             void RotateLeftAll  (const int &level);
@@ -32,9 +32,11 @@ namespace myNamespace {
             SDL_Point center;
             SDL_Texture *texture;
             SDL_Rect positionFrame;
+            void generateLevel (const int &level);
+            bool cmp (const pair <int, int> &a, const pair <int, int> &b);
             bool inrange(const int &x, const int &y);
             void presentAllOtherThings (const int &level);
-            void updateAllState (const double &angle);
+            void updateAllState (const double &angle, const bool &presentState);
             void presentIFrame (const double &angle);
             void presentFrameBackground (const bool &levelComplete, const double &angle);
             void presentGameState (const double &angle);

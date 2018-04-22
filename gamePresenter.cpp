@@ -4,44 +4,12 @@
 using namespace myNamespace;
 using namespace std;
 
-bool cmp (const pair <int, int> &a, const pair <int, int> &b) {
+bool gameInfo :: cmp (const pair <int, int> &a, const pair <int, int> &b) {
     return a.second > b.second;
 }
 
 gameInfo :: gameInfo (const int level) {
-    stringstream ss;
-    ss << level;
-    string levelNow = "";
-    ss >> levelNow;
-
-    block.clear();
-    ball.clear();
-    destination.clear();
-    //--------------------------------------------------------------------
-
-    ifstream fi;
-    int x, y;
-    fi.open(("levels/level" + levelNow + "/block.txt").c_str());
-    while (fi >> x >> y) {
-        if (inrange(x, y))
-            block.push_back(make_pair(x, y));
-    }
-    fi.close ();
-    //--------------------------------------------------------------------
-    fi.open(("levels/level" + levelNow + "/ball.txt").c_str());
-    while (fi >> x >> y) {
-        if (inrange(x, y))
-            ball.push_back(make_pair(x, y));
-    }
-    fi.close ();
-    //--------------------------------------------------------------------
-    fi.open(("levels/level" + levelNow + "/destination.txt").c_str());
-    while (fi >> x >> y) {
-        if (inrange(x, y))
-            destination.push_back(make_pair(x, y));
-    }
-    fi.close ();
-    //--------------------------------------------------------------------
+    generateLevel(level);
     positionFrame.w = mainWindowsWidth * 0.36;
     positionFrame.h = positionFrame.w;
     positionFrame.x = mainWindowsWidth * 0.5 - positionFrame.w * 0.5;
@@ -51,8 +19,84 @@ gameInfo :: gameInfo (const int level) {
     center.y = positionFrame.y + positionFrame.h * 0.5;
 }
 
+void gameInfo ::generateLevel(const int &levelNow) {
+    int level = levelNow;
+    if (level > maxLevel) {
+        level = rand () % maxLevel + 1;
+    }
+    srand(time(NULL));
+    set <pair <int, int> > myBalls, myBlocks;
+    // generate balls
+    vector < pair <int, int> > candidateBalls;
+    for (int i = 0; i < Table_size; i++)
+        for (int j = 0; j < Table_size; j++) {
+            candidateBalls.push_back (make_pair(i + 1, j + 1));
+        }
+    random_shuffle(candidateBalls.begin(), candidateBalls.end());
+    for (auto ball: candidateBalls) {
+        myBalls.insert (ball);
+        if (myBalls.size() >= level) {
+            break;
+        }
+    }
+    // generate blocks
+    for (auto ball: myBalls) {
+        int x = ball.first,
+            y = ball.second;
+        if (y == Table_size) continue;
+        if (myBalls.find(make_pair(x, y + 1)) == myBalls.end()) {
+            myBlocks.insert(make_pair(x, y + 1));
+        }
+    }
+    // generate destinations
+    for (auto ball: myBalls) {
+        balls.push_back(ball);
+    }
+    for (auto block: myBlocks) {
+        blocks.push_back(block);
+    }
+    vector <char> trace;
+    for (int i = 0; i < level; i++) {
+        bool Left = rand () % 2;
+        if (Left == 1) {
+            RotateLeft(balls);
+            RotateLeft(blocks);
+            trace.push_back('L');
+            cout << "Left\n";
+        } else {
+            RotateRight(balls);
+            RotateRight(blocks);
+            trace.push_back('R');
+            cout << "Right\n";
+        }
+        updateAllState(0, true);
+    }
+    cout << "------------------------------\n";
+
+    // update vector destinations, blocks, balls
+    destinations.clear ();
+    for (auto destination: balls) {
+        destinations.push_back(destination);
+    }
+    for (int i = level - 1; i > -1; i--) {
+        char c = trace[i];
+        if (c == 'L')
+            RotateRight(destinations);
+        else
+            RotateLeft (destinations);
+    }
+    balls.clear ();
+    blocks.clear ();
+    for (auto block: myBlocks) {
+        blocks.push_back(block);
+    }
+    for (auto ball: myBalls) {
+        balls.push_back(ball);
+    }
+}
+
 void gameInfo :: RotateRight (vector <pair <int, int> > &v) {
-    int h = 10;
+    int h = Table_size;
     for (int i = 0; i < int(v.size()); i++) {
         int tmp = v[i].second;
         v[i].second = v[i].first;
@@ -61,7 +105,7 @@ void gameInfo :: RotateRight (vector <pair <int, int> > &v) {
 }
 
 void gameInfo :: RotateLeft (vector <pair <int, int> > &v) {
-    int w = 10;
+    int w = Table_size;
     for (int i = 0; i < int(v.size()); i++) {
         int tmp = v[i].first;
         v[i].first = v[i].second;
@@ -74,9 +118,9 @@ void gameInfo :: RotateLeftAll (const int &level) {
         update(angle, level);
         SDL_Delay (0);
     }
-    RotateLeft (ball);
-    RotateLeft (destination);
-    RotateLeft (block);
+    RotateLeft (balls);
+    RotateLeft (destinations);
+    RotateLeft (blocks);
 }
 
 void gameInfo :: RotateRightAll (const int &level) {
@@ -84,9 +128,9 @@ void gameInfo :: RotateRightAll (const int &level) {
         update(angle, level);
         SDL_Delay (0);
     }
-    RotateRight (ball);
-    RotateRight (destination);
-    RotateRight (block);
+    RotateRight (balls);
+    RotateRight (destinations);
+    RotateRight (blocks);
 }
 
 void gameInfo::presentLevelInfo (const int &level) {
@@ -105,6 +149,9 @@ void gameInfo::presentLevelInfo (const int &level) {
     rbg.x = rbg.y = 0;
     rbg.w = mainWindowsWidth;
     rbg.h = mainWindowsHeight;
+
+    if (level > maxLevel)
+        levelNow = endless_link;
 
     presentImage (rbg, background_link, 0);
     presentImage (r, levelNow, 0);
@@ -148,13 +195,13 @@ void gameInfo :: presentFrameBackground (const bool &levelComplete, const double
 }
 
 bool gameInfo :: inrange(const int &x, const int &y) {
-    return 0 < x && x <= 10 && 0 < y && y <= 10;
+    return 0 < x && x <= Table_size && 0 < y && y <= Table_size;
 }
 
 void gameInfo :: presentGameState (const double &angle) {
 
-    double eachSize = positionFrame.h / 10.0;
-    for (auto pos: block) {
+    double eachSize = positionFrame.h / (1.0 * Table_size);
+    for (auto pos: blocks) {
         SDL_Rect blocks;
         blocks.w = blocks.h = eachSize;
         blocks.x = positionFrame.x + (pos.first - 1) * eachSize;
@@ -162,7 +209,7 @@ void gameInfo :: presentGameState (const double &angle) {
         presentImage(blocks, block_link, angle);
     }
 
-    for (auto pos: destination) {
+    for (auto pos: destinations) {
         SDL_Rect destinations;
         destinations.w = destinations.h = eachSize;
         destinations.x = positionFrame.x + (pos.first - 1) * eachSize;
@@ -170,7 +217,7 @@ void gameInfo :: presentGameState (const double &angle) {
         presentImage(destinations, destination_link, angle);
     }
 
-    for (auto pos: ball) {
+    for (auto pos: balls) {
         SDL_Rect balls;
         balls.w = balls.h = eachSize;
         balls.x = positionFrame.x + (pos.first - 1) * eachSize;
@@ -196,44 +243,45 @@ void gameInfo:: presentAllOtherThings ( const int &level) {
 
 }
 
-void gameInfo :: updateAllState (const double &angle) {
-    bool state[11][11];
+void gameInfo :: updateAllState (const double &angle, const bool &presentState) {
+    bool state[Table_size + 1][Table_size + 1];
     memset (state, false, sizeof(state));
-    for (auto info: block)
+    for (auto info: blocks)
         state [info.first][info.second] = true;
     //------------------------------------------------------------------
     //sort (ball.begin(), ball.end(), cmp); // sort balls to easy manage
     set <pair <int, int> > isBall;
     isBall.clear();
-    for (auto balls: ball) {
-        isBall.insert (balls);
+    for (auto ball: balls) {
+        isBall.insert (ball);
     }
     //------------------------------------------------------------------
 
     int cnt;
     do {
-
-        presentFrameBackground(false, angle);
-        presentGameState(angle);
-        presentIFrame (angle);
-        SDL_RenderPresent(renderer);
+        if (presentState == true) {
+            presentFrameBackground(false, angle);
+            presentGameState(angle);
+            presentIFrame(angle);
+            SDL_RenderPresent(renderer);
+        }
 
         cnt = 0;
-        for (int i = 0; i < int(ball.size()); i++) {
-            if (isBall.find (make_pair(ball[i].first, ball[i].second + 1)) == isBall.end()) { // is not another ball
+        for (int i = 0; i < int(balls.size()); i++) {
+            if (isBall.find (make_pair(balls[i].first, balls[i].second + 1)) == isBall.end()) { // is not another ball
 
-                if (ball[i].second + 1 < 11 && state[ball[i].first][ball[i].second + 1] == false) {
+                if (balls[i].second < Table_size && state[balls[i].first][balls[i].second + 1] == false) {
 
-                    isBall.erase(ball[i]);
-                    isBall.insert (make_pair(ball[i].first, ball[i].second + 1));
+                    isBall.erase(balls[i]);
+                    isBall.insert (make_pair(balls[i].first, balls[i].second + 1));
 
-                    ball[i].second++;
+                    balls[i].second++;
                     cnt++;
                 }
             }
         }
 
-        SDL_Delay (20);
+        SDL_Delay (25);
 
     } while (cnt > 0);
 }
@@ -241,15 +289,15 @@ void gameInfo :: updateAllState (const double &angle) {
 void gameInfo:: update(const double &angle, const int &level) {
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
     presentAllOtherThings(level);
-    updateAllState(angle);
+    updateAllState(angle, true);
     SDL_DestroyRenderer(renderer);
 }
 
 bool gameInfo :: completeLevel () {
-    for (auto destinations: destination) {
+    for (auto destination: destinations) {
         bool found = false;
-        for (auto balls: ball)
-            if (destinations.first == balls.first && destinations.second == balls.second)
+        for (auto ball: balls)
+            if (destination.first == ball.first && destination.second == ball.second)
                 found = true;
         if (!found) return false;
     }
