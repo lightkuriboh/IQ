@@ -46,7 +46,6 @@ namespace myNamespace {
 
 
             bool cmp (const pair <int, int> &a, const pair <int, int> &b);
-            bool inrange(const int &x, const int &y);
 
             void compressData (gameState &gameState);
             void extractData  (gameState &gameState);
@@ -56,7 +55,7 @@ namespace myNamespace {
             void presentAllOtherThings (const int &level);
             void updateAllState (const double &angle, const bool &presentState);
             void presentIFrame (const double &angle);
-            void presentFrameBackground (const bool &levelComplete, const double &angle);
+            void presentFrameBackground (const double &angle, const bool &levelComplete);
             void presentGameState (const double &angle);
             void RotateLeft (vector <pair <int, int> > &v);
             void RotateRight (vector <pair <int, int> > &v);

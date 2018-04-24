@@ -5,7 +5,7 @@ using namespace myNamespace;
 using namespace std;
 
 gamePresenter :: gamePresenter (const int level) {
-    generateLevel(level);
+    generateLevel (level);
     positionFrame.w = MainWindowsWidth * 0.36;
     positionFrame.h = positionFrame.w;
     positionFrame.x = MainWindowsWidth * 0.5 - positionFrame.w * 0.5;
@@ -61,7 +61,7 @@ bool gamePresenter :: completeLevel () {
 
 void gamePresenter :: displayComplete () {
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    presentFrameBackground (true, 0);
+    presentFrameBackground (0, true);
     presentIFrame (0);
     SDL_RenderPresent (renderer);
     SDL_DestroyRenderer(renderer);
@@ -250,7 +250,7 @@ void gamePresenter :: presentIFrame (const double &angle) {
 
 }
 
-void gamePresenter :: presentFrameBackground (const bool &levelComplete, const double &angle) {
+void gamePresenter :: presentFrameBackground (const double &angle, const bool &levelComplete) {
 
     if (levelComplete == false){
         presentImage (positionFrame, bgFrame_link, angle);
@@ -258,10 +258,6 @@ void gamePresenter :: presentFrameBackground (const bool &levelComplete, const d
     else {
         presentImage (positionFrame, completeLevel_link, angle);
     }
-}
-
-bool gamePresenter :: inrange(const int &x, const int &y) {
-    return 0 < x && x <= Table_size && 0 < y && y <= Table_size;
 }
 
 void gamePresenter :: presentGameState (const double &angle) {
@@ -334,7 +330,7 @@ void gamePresenter :: updateAllState (const double &angle, const bool &presentSt
     int cnt;
     do {
         if (presentState == true) {
-            presentFrameBackground(false, angle);
+            presentFrameBackground(angle, false);
             presentGameState(angle);
             presentIFrame(angle);
             SDL_RenderPresent(renderer);

@@ -34,13 +34,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b2794079-79fc-44d9-9003-38e7cd8559b1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/CreateWindows.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/CreateWindows.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/EventHandler.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/EventHandler.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/buttons.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/buttons.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/gameEngine.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/gameEngine.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/gamePresenter.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/gamePresenter.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IQ.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/IQ" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/IQ" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gameEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gameEngine.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamePresenter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gamePresenter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gamePresenter.h" beforeDir="false" afterPath="$PROJECT_DIR$/gamePresenter.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,11 +61,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.h" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config.h">
+      <file leaf-file-name="gamePresenter.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gamePresenter.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+            <state relative-caret-position="306">
+              <caret line="260" column="1" selection-start-line="260" selection-start-column="1" selection-end-line="260" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gamePresenter.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gamePresenter.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateWindows.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CreateWindows.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CreateWindows.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CreateWindows.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -85,6 +111,8 @@
       <find>presentAl</find>
       <find>mainWindowsWidth</find>
       <find>mainWindowsHeight</find>
+      <find>inrange</find>
+      <find>presentFrame</find>
     </findStrings>
     <replaceStrings>
       <replace>gamePresenter</replace>
@@ -111,12 +139,12 @@
         <option value="$PROJECT_DIR$/EventHandler.h" />
         <option value="$PROJECT_DIR$/EventHandler.cpp" />
         <option value="$PROJECT_DIR$/CreateWindows.h" />
-        <option value="$PROJECT_DIR$/gamePresenter.h" />
-        <option value="$PROJECT_DIR$/gamePresenter.cpp" />
         <option value="$PROJECT_DIR$/CreateWindows.cpp" />
-        <option value="$PROJECT_DIR$/gameEngine.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/config.h" />
+        <option value="$PROJECT_DIR$/gameEngine.cpp" />
+        <option value="$PROJECT_DIR$/gamePresenter.h" />
+        <option value="$PROJECT_DIR$/gamePresenter.cpp" />
       </list>
     </option>
   </component>
@@ -135,8 +163,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds" extendedState="4">
-    <option name="x" value="66" />
+    <option name="x" value="75" />
     <option name="y" value="24" />
     <option name="width" value="1300" />
     <option name="height" value="744" />
@@ -163,7 +192,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../testgame/Maze" />
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunDashboard">
@@ -204,28 +233,30 @@
       <workItem from="1524326679249" duration="1133000" />
       <workItem from="1524374773596" duration="4477000" />
       <workItem from="1524400928853" duration="141000" />
-      <workItem from="1524532205014" duration="5184000" />
+      <workItem from="1524532205014" duration="5326000" />
+      <workItem from="1524540205122" duration="87000" />
+      <workItem from="1524540428485" duration="4000" />
+      <workItem from="1524541305656" duration="1065000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16223000" />
+    <option name="totallyTimeSpent" value="17521000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="66" y="24" width="1300" height="744" extended-state="4" />
+    <frame x="75" y="24" width="1300" height="744" extended-state="4" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2458888" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.3566553" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3566553" />
       <window_info anchor="bottom" id="CMake" order="11" />
+      <window_info anchor="bottom" id="TeamCity" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32935154" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2458888" />
-      <window_info anchor="bottom" id="TeamCity" order="7" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32935154" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39905363" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -234,6 +265,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +273,14 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/CreateWindows.cpp" />
@@ -318,9 +358,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EventHandler.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/buttons.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -342,27 +379,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gameEngine.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="122" selection-start-line="122" selection-end-line="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CreateWindows.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CreateWindows.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -370,20 +386,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gamePresenter.cpp">
+    <entry file="file:///usr/local/include/SDL2/SDL_video.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        <state relative-caret-position="165">
+          <caret line="297" column="38" lean-forward="true" selection-start-line="297" selection-start-column="38" selection-end-line="297" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gamePresenter.h">
+    <entry file="file://$PROJECT_DIR$/gameEngine.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
-          <folding>
-            <element signature="e#88#102#0" expanded="true" />
-          </folding>
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="30" column="16" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -394,10 +414,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.h">
+    <entry file="file://$PROJECT_DIR$/gamePresenter.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        <state relative-caret-position="306">
+          <caret line="260" column="1" selection-start-line="260" selection-start-column="1" selection-end-line="260" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CreateWindows.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CreateWindows.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamePresenter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="28" column="10" lean-forward="true" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
         </state>
       </provider>
     </entry>

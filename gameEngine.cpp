@@ -7,7 +7,6 @@ namespace myNamespace {
     void processlevel (int &level, bool &stopGame, bool &levelUp, bool &backMenu) {
 
         gamePresenter newGame (level);
-
         newGame.update(0, level);
 
         while (!stopGame) {
@@ -17,6 +16,13 @@ namespace myNamespace {
             if (SDL_PollEvent(&event) != 0) {
                 if (quit (event)) {
                     stopGame = true;
+                    newGame.freeResource ();
+                    return;
+                }
+                if (clickBackMenu (event) ) {
+                    backMenu = true;
+                    newGame.freeResource ();
+                    return;
                 }
                 if (clickRotateLeft (event) ) {
                     newGame.RotateLeftAll (level);
@@ -25,11 +31,6 @@ namespace myNamespace {
                 if (clickRotateRight (event)) {
                     newGame.RotateRightAll (level);
                     newGame.update(0, level);
-                }
-                if (clickBackMenu (event) ) {
-                    backMenu = true;
-                    newGame.freeResource ();
-                    return;
                 }
                 if (clickRestart (event)) {
                     newGame.restart ();
@@ -94,13 +95,6 @@ namespace myNamespace {
             }
 
             if (started == true || levelUp) {
-
-                SDL_Renderer *renderer;
-                renderer = SDL_CreateRenderer(window, -1, 0);
-                New.initBackground(background_link);
-                SDL_RenderPresent(renderer);
-                SDL_DestroyRenderer(renderer);
-
                 levelUp = false;
                 processlevel (level, stopGame, levelUp, backMenu);
                 started = false;
