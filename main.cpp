@@ -10,7 +10,7 @@ int main ( int argc, char* args[] ) {
     for (int i = 0; i < argc; i++)
         cout << args[i] << "\n";
 
-    StartOneThread (mainWindowsHeight, mainWindowsWidth);
+    StartOneThread (MainWindowsHeight, MainWindowsWidth);
 
     return 0;
 }

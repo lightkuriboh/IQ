@@ -6,10 +6,10 @@ using namespace std;
 
 gamePresenter :: gamePresenter (const int level) {
     generateLevel(level);
-    positionFrame.w = mainWindowsWidth * 0.36;
+    positionFrame.w = MainWindowsWidth * 0.36;
     positionFrame.h = positionFrame.w;
-    positionFrame.x = mainWindowsWidth * 0.5 - positionFrame.w * 0.5;
-    positionFrame.y = mainWindowsHeight * 0.4 - positionFrame.h * 0.5;
+    positionFrame.x = MainWindowsWidth * 0.5 - positionFrame.w * 0.5;
+    positionFrame.y = MainWindowsHeight * 0.4 - positionFrame.h * 0.5;
     //--------------------------------------------------------------------
     center.x = positionFrame.x + positionFrame.w * 0.5;
     center.y = positionFrame.y + positionFrame.h * 0.5;
@@ -208,13 +208,13 @@ void gamePresenter::presentLevelInfo (const int &level) {
 
     SDL_Rect r, rbg;
 
-    r.w = r.h = mainWindowsWidth * 0.1;
-    r.y = mainWindowsHeight * 0.85 - r.h * 0.5;
-    r.x = mainWindowsWidth * 0.5 - r.w * 0.5;
+    r.w = r.h = MainWindowsWidth * 0.1;
+    r.y = MainWindowsHeight * 0.85 - r.h * 0.5;
+    r.x = MainWindowsWidth * 0.5 - r.w * 0.5;
 
     rbg.x = rbg.y = 0;
-    rbg.w = mainWindowsWidth;
-    rbg.h = mainWindowsHeight;
+    rbg.w = MainWindowsWidth;
+    rbg.h = MainWindowsHeight;
 
     if (level > MaxLevel)
         levelNow = endless_link;
@@ -242,10 +242,10 @@ void gamePresenter :: presentImage (const SDL_Rect r, const string &image_link, 
 
 void gamePresenter :: presentIFrame (const double &angle) {
     SDL_Rect iframe;
-    iframe.w = mainWindowsWidth * 0.44;
+    iframe.w = MainWindowsWidth * 0.44;
     iframe.h = iframe.w;
-    iframe.x = mainWindowsWidth * 0.5 - iframe.w * 0.5;
-    iframe.y = mainWindowsHeight * 0.4 - iframe.h * 0.5;
+    iframe.x = MainWindowsWidth * 0.5 - iframe.w * 0.5;
+    iframe.y = MainWindowsHeight * 0.4 - iframe.h * 0.5;
     presentImage (iframe, frame_link, angle);
 
 }

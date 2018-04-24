@@ -69,7 +69,7 @@ namespace myNamespace {
         bool stopGame = false;
 
         UI New;
-        New._make_main_windows ("IQ", mainWindowsWidth, mainWindowsHeight);
+        New._make_main_windows ("IQ", MainWindowsWidth, MainWindowsHeight);
         initGameMenu (New);
 
         bool started = false;

@@ -33,10 +33,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2794079-79fc-44d9-9003-38e7cd8559b1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/CreateWindows.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/CreateWindows.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buttons.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/buttons.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.h" beforeDir="false" afterPath="$PROJECT_DIR$/config.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gameEngine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gameEngine.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gamePresenter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gamePresenter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gamePresenter.h" beforeDir="false" afterPath="$PROJECT_DIR$/gamePresenter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,8 +62,8 @@
       <file leaf-file-name="gamePresenter.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gamePresenter.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="399" column="1" lean-forward="true" selection-start-line="399" selection-start-column="1" selection-end-line="399" selection-end-column="1" />
+            <state relative-caret-position="95">
+              <caret line="390" column="1" lean-forward="true" selection-start-line="390" selection-start-column="1" selection-end-line="390" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -85,7 +86,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gameEngine.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="config.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gameEngine.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gameEngine.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="230">
@@ -106,6 +116,8 @@
       <find>undoButton</find>
       <find>restartButton</find>
       <find>presentAl</find>
+      <find>mainWindowsWidth</find>
+      <find>mainWindowsHeight</find>
     </findStrings>
     <replaceStrings>
       <replace>gamePresenter</replace>
@@ -113,6 +125,8 @@
       <replace>MaxUndo</replace>
       <replace>UndoButton</replace>
       <replace>RestartButton</replace>
+      <replace>MainWindowsWidth</replace>
+      <replace>MainWindowsHeight</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -126,7 +140,6 @@
         <option value="$PROJECT_DIR$/gameEngine.h" />
         <option value="$PROJECT_DIR$/Hinter.cpp" />
         <option value="$PROJECT_DIR$/buttons.h" />
-        <option value="$PROJECT_DIR$/config.h" />
         <option value="$PROJECT_DIR$/buttons.cpp" />
         <option value="$PROJECT_DIR$/EventHandler.h" />
         <option value="$PROJECT_DIR$/EventHandler.cpp" />
@@ -135,6 +148,7 @@
         <option value="$PROJECT_DIR$/gamePresenter.cpp" />
         <option value="$PROJECT_DIR$/CreateWindows.cpp" />
         <option value="$PROJECT_DIR$/gameEngine.cpp" />
+        <option value="$PROJECT_DIR$/config.h" />
       </list>
     </option>
   </component>
@@ -222,12 +236,12 @@
       <workItem from="1524326679249" duration="1133000" />
       <workItem from="1524374773596" duration="4477000" />
       <workItem from="1524400928853" duration="141000" />
-      <workItem from="1524532205014" duration="4533000" />
+      <workItem from="1524532205014" duration="4648000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15572000" />
+    <option name="totallyTimeSpent" value="15687000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="66" y="24" width="1300" height="744" extended-state="4" />
@@ -337,13 +351,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/EventHandler.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -382,17 +389,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gamePresenter.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="399" column="1" lean-forward="true" selection-start-line="399" selection-start-column="1" selection-end-line="399" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CreateWindows.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="439">
           <caret line="68" column="1" lean-forward="true" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gameEngine.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamePresenter.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="390" column="1" lean-forward="true" selection-start-line="390" selection-start-column="1" selection-end-line="390" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -403,10 +417,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gameEngine.cpp">
+    <entry file="file://$PROJECT_DIR$/config.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
+        <state relative-caret-position="105">
+          <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
         </state>
       </provider>
     </entry>

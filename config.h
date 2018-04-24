@@ -5,8 +5,8 @@ using namespace std;
 #include <string>
 #include <SDL2/SDL.h>
 
-const int mainWindowsWidth  = 960;
-const int mainWindowsHeight = 640;
+const int MainWindowsWidth  = 960;
+const int MainWindowsHeight = 640;
 
 const string buttonStart_link = "img/button_start.bmp";
 const string background_link = "img/bg.bmp";

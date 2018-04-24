@@ -4,45 +4,45 @@ using namespace myNamespace;
 
 void StartButton::init() {
 
-    r.w = mainWindowsWidth * 0.2;
-    r.h = mainWindowsHeight * 0.15;
-    r.x = mainWindowsWidth * 0.5 - r.w * 0.5;
-    r.y = mainWindowsHeight * 0.85 - r.h * 0.5;
+    r.w = MainWindowsWidth * 0.2;
+    r.h = MainWindowsHeight * 0.15;
+    r.x = MainWindowsWidth * 0.5 - r.w * 0.5;
+    r.y = MainWindowsHeight * 0.85 - r.h * 0.5;
     link = buttonStart_link;
 
 }
 
 void RotateButton :: init(const string &type) {
 
-    r.w = r.h = mainWindowsWidth * 0.1;
+    r.w = r.h = MainWindowsWidth * 0.1;
 
-    r.y = mainWindowsHeight * 0.85 - r.h * 0.5;
+    r.y = MainWindowsHeight * 0.85 - r.h * 0.5;
     if (type == "left") {
-        r.x = mainWindowsWidth * 0.35 - r.w * 0.5;
+        r.x = MainWindowsWidth * 0.35 - r.w * 0.5;
         link = RotateLeft_link;
     }
     else {
-        r.x = mainWindowsWidth * 0.65 - r.w * 0.5;
+        r.x = MainWindowsWidth * 0.65 - r.w * 0.5;
         link = RotateRight_link;
     }
 }
 
 void BackButton :: init () {
-    r.w = r.h = mainWindowsWidth * 0.09;
+    r.w = r.h = MainWindowsWidth * 0.09;
     r.x = r.y = 0;
     link = back_link;
 }
 
 void RestartButton :: init () {
-    r.w = r.h = mainWindowsWidth * 0.09;
-    r.x = mainWindowsWidth - r.w;
+    r.w = r.h = MainWindowsWidth * 0.09;
+    r.x = MainWindowsWidth - r.w;
     r.y = r.h;
     link = restart_link;
 }
 
 void UndoButton :: init () {
-    r.w = r.h = mainWindowsWidth * 0.09;
-    r.x = mainWindowsWidth - r.w;
+    r.w = r.h = MainWindowsWidth * 0.09;
+    r.x = MainWindowsWidth - r.w;
     r.y = 0;
     link = undo_link;
 }
