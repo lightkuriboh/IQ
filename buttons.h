@@ -31,6 +31,16 @@ namespace myNamespace {
             void init();
     };
 
+    class RestartButton: public button {
+        public:
+            void init();
+    };
+
+    class UndoButton: public button {
+        public:
+            void init();
+    };
+
 }
 
 #endif // BUTTONS_H_INCLUDED

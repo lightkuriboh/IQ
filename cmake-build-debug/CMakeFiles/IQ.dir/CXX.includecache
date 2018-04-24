@@ -91,6 +91,8 @@ config.h
 /home/kuribohkute/workspace/C++/IQ/config.h
 buttons.h
 /home/kuribohkute/workspace/C++/IQ/buttons.h
+deque
+-
 
 /home/kuribohkute/workspace/C++/IQ/main.cpp
 gameEngine.h

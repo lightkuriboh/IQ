@@ -6,7 +6,7 @@ namespace myNamespace {
     SDL_Window *window;
     void processlevel (int &level, bool &stopGame, bool &levelUp, bool &backMenu) {
 
-        gameInfo newGame (level);
+        gamePresenter newGame (level);
 
         newGame.update(0, level);
 
@@ -28,13 +28,23 @@ namespace myNamespace {
                 }
                 if (clickBackMenu (event) ) {
                     backMenu = true;
+                    newGame.freeResource ();
                     return;
+                }
+                if (clickRestart (event)) {
+                    newGame.restart ();
+                    newGame.update (0, level);
+                }
+                if (clickUndo (event)) {
+                    newGame.undo ();
+                    newGame.update (0, level);
                 }
                 if (!levelUp && newGame.completeLevel () ) {
                     levelUp = true;
                     SDL_Delay (200);
                     newGame.displayComplete ();
                     SDL_Delay (1000);
+                    newGame.freeResource ();
                     return;
                 }
 
@@ -111,5 +121,5 @@ namespace myNamespace {
         }
         New.quitSDL();
     }
-
 }
+

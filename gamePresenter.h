@@ -11,30 +11,46 @@ using namespace std;
 #include <SDL2/SDL.h>
 #include "config.h"
 #include "buttons.h"
+#include <deque>
 
 namespace myNamespace {
 
-    class gameInfo {
+    class gamePresenter {
         public:
-            SDL_Renderer *renderer;
-            vector <pair <int, int> > blocks;
             vector <pair <int, int> > balls;
+            vector <pair <int, int> > blocks;
             vector <pair <int, int> > destinations;
 
-            gameInfo (const int level);
+            gamePresenter (const int level);
             void RotateLeftAll  (const int &level);
             void RotateRightAll (const int &level);
             void update(const double &angle, const int &level);
-            void displayComplete ();
             bool completeLevel ();
+            void displayComplete ();
+            void undo ();
+            void restart ();
+            void freeResource ();
 
         private:
             SDL_Point center;
-            SDL_Texture *texture;
             SDL_Rect positionFrame;
-            void generateLevel (const int &level);
+            SDL_Texture *texture;
+            SDL_Renderer *renderer;
+            struct gameState {
+                vector <pair <int, int> > balls, blocks, destinations;
+            };
+            deque <gameState> undoQueue;
+            struct gameState originalGameState;
+
+
             bool cmp (const pair <int, int> &a, const pair <int, int> &b);
             bool inrange(const int &x, const int &y);
+
+            void compressData (gameState &gameState);
+            void extractData  (gameState &gameState);
+            void pushUndo ();
+
+            void generateLevel (const int &level);
             void presentAllOtherThings (const int &level);
             void updateAllState (const double &angle, const bool &presentState);
             void presentIFrame (const double &angle);

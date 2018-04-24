@@ -4,11 +4,7 @@
 using namespace myNamespace;
 using namespace std;
 
-bool gameInfo :: cmp (const pair <int, int> &a, const pair <int, int> &b) {
-    return a.second > b.second;
-}
-
-gameInfo :: gameInfo (const int level) {
+gamePresenter :: gamePresenter (const int level) {
     generateLevel(level);
     positionFrame.w = mainWindowsWidth * 0.36;
     positionFrame.h = positionFrame.w;
@@ -19,10 +15,100 @@ gameInfo :: gameInfo (const int level) {
     center.y = positionFrame.y + positionFrame.h * 0.5;
 }
 
-void gameInfo ::generateLevel(const int &levelNow) {
+void gamePresenter :: RotateLeftAll (const int &level) {
+
+    pushUndo ();
+
+    for (double angle = -10; angle >= -90; angle -= 10) {
+        update(angle, level);
+        SDL_Delay (0);
+    }
+    RotateLeft (balls);
+    RotateLeft (destinations);
+    RotateLeft (blocks);
+}
+
+void gamePresenter :: RotateRightAll (const int &level) {
+
+    pushUndo ();
+
+    for (double angle = 10; angle <= 90; angle += 10) {
+        update(angle, level);
+        SDL_Delay (0);
+    }
+    RotateRight (balls);
+    RotateRight (destinations);
+    RotateRight (blocks);
+}
+
+void gamePresenter:: update(const double &angle, const int &level) {
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    presentAllOtherThings(level);
+    updateAllState(angle, true);
+    SDL_DestroyRenderer(renderer);
+}
+
+bool gamePresenter :: completeLevel () {
+    for (auto destination: destinations) {
+        bool found = false;
+        for (auto ball: balls)
+            if (destination.first == ball.first && destination.second == ball.second)
+                found = true;
+        if (!found) return false;
+    }
+    return true;
+}
+
+void gamePresenter :: displayComplete () {
+    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    presentFrameBackground (true, 0);
+    presentIFrame (0);
+    SDL_RenderPresent (renderer);
+    SDL_DestroyRenderer(renderer);
+}
+
+void gamePresenter :: undo () {
+    if (undoQueue.empty ()) {
+        SDL_ShowSimpleMessageBox (-1, "Nothing to undo!", "Nothing to undo!", window);
+    } else {
+        struct gameState previousGameState = undoQueue.back ();
+        undoQueue.pop_back ();
+        extractData (previousGameState);
+    }
+}
+
+void gamePresenter :: restart () {
+    pushUndo ();
+    extractData (originalGameState);
+}
+
+
+void gamePresenter::freeResource() {
+    while (int(balls.size()) > 0) balls.pop_back ();
+    while (int(blocks.size()) > 0) blocks.pop_back ();
+    while (int(destinations.size()) > 0) destinations.pop_back ();
+
+    while (int(originalGameState.balls.size()) > 0) originalGameState.balls.pop_back ();
+    while (int(originalGameState.blocks.size()) > 0) originalGameState.blocks.pop_back ();
+    while (int(originalGameState.destinations.size()) > 0) originalGameState.destinations.pop_back ();
+
+    while (!undoQueue.empty ()) undoQueue.pop_back ();
+}
+
+
+
+
+// public --------------------------------------------------------------------------------------
+// private --------------------------------------------------------------------------------------
+
+bool gamePresenter :: cmp (const pair <int, int> &a, const pair <int, int> &b) {
+    return a.second > b.second;
+}
+
+void gamePresenter ::generateLevel(const int &levelNow) {
     int level = levelNow;
-    if (level > maxLevel) {
-        level = rand () % maxLevel + 1;
+    if (level > MaxLevel) {
+        level = rand () % MaxLevel + 1;
     }
     srand(time(NULL));
     set <pair <int, int> > myBalls, myBlocks;
@@ -93,9 +179,10 @@ void gameInfo ::generateLevel(const int &levelNow) {
     for (auto ball: myBalls) {
         balls.push_back(ball);
     }
+    compressData (originalGameState);
 }
 
-void gameInfo :: RotateRight (vector <pair <int, int> > &v) {
+void gamePresenter :: RotateRight (vector <pair <int, int> > &v) {
     int h = Table_size;
     for (int i = 0; i < int(v.size()); i++) {
         int tmp = v[i].second;
@@ -104,7 +191,7 @@ void gameInfo :: RotateRight (vector <pair <int, int> > &v) {
     }
 }
 
-void gameInfo :: RotateLeft (vector <pair <int, int> > &v) {
+void gamePresenter :: RotateLeft (vector <pair <int, int> > &v) {
     int w = Table_size;
     for (int i = 0; i < int(v.size()); i++) {
         int tmp = v[i].first;
@@ -113,27 +200,7 @@ void gameInfo :: RotateLeft (vector <pair <int, int> > &v) {
     }
 }
 
-void gameInfo :: RotateLeftAll (const int &level) {
-    for (double angle = -10; angle >= -90; angle -= 10) {
-        update(angle, level);
-        SDL_Delay (0);
-    }
-    RotateLeft (balls);
-    RotateLeft (destinations);
-    RotateLeft (blocks);
-}
-
-void gameInfo :: RotateRightAll (const int &level) {
-    for (double angle = 10; angle <= 90; angle += 10) {
-        update(angle, level);
-        SDL_Delay (0);
-    }
-    RotateRight (balls);
-    RotateRight (destinations);
-    RotateRight (blocks);
-}
-
-void gameInfo::presentLevelInfo (const int &level) {
+void gamePresenter::presentLevelInfo (const int &level) {
     stringstream ss;
     ss << level;
     string levelNow = "";
@@ -150,14 +217,14 @@ void gameInfo::presentLevelInfo (const int &level) {
     rbg.w = mainWindowsWidth;
     rbg.h = mainWindowsHeight;
 
-    if (level > maxLevel)
+    if (level > MaxLevel)
         levelNow = endless_link;
 
     presentImage (rbg, background_link, 0);
     presentImage (r, levelNow, 0);
 }
 
-void gameInfo :: presentImage (const SDL_Rect r, const string &image_link, const double&angle) {
+void gamePresenter :: presentImage (const SDL_Rect r, const string &image_link, const double&angle) {
 
     SDL_Surface *background = SDL_LoadBMP(image_link.c_str());
 
@@ -174,7 +241,7 @@ void gameInfo :: presentImage (const SDL_Rect r, const string &image_link, const
 
 }
 
-void gameInfo :: presentIFrame (const double &angle) {
+void gamePresenter :: presentIFrame (const double &angle) {
     SDL_Rect iframe;
     iframe.w = mainWindowsWidth * 0.44;
     iframe.h = iframe.w;
@@ -184,7 +251,7 @@ void gameInfo :: presentIFrame (const double &angle) {
 
 }
 
-void gameInfo :: presentFrameBackground (const bool &levelComplete, const double &angle) {
+void gamePresenter :: presentFrameBackground (const bool &levelComplete, const double &angle) {
 
     if (levelComplete == false){
         presentImage (positionFrame, bgFrame_link, angle);
@@ -194,11 +261,11 @@ void gameInfo :: presentFrameBackground (const bool &levelComplete, const double
     }
 }
 
-bool gameInfo :: inrange(const int &x, const int &y) {
+bool gamePresenter :: inrange(const int &x, const int &y) {
     return 0 < x && x <= Table_size && 0 < y && y <= Table_size;
 }
 
-void gameInfo :: presentGameState (const double &angle) {
+void gamePresenter :: presentGameState (const double &angle) {
 
     double eachSize = positionFrame.h / (1.0 * Table_size);
     for (auto pos: blocks) {
@@ -226,7 +293,7 @@ void gameInfo :: presentGameState (const double &angle) {
     }
 }
 
-void gameInfo:: presentAllOtherThings ( const int &level) {
+void gamePresenter:: presentAllOtherThings ( const int &level) {
 
     presentLevelInfo(level);
     RotateButton myRotateLeftButton;
@@ -241,9 +308,17 @@ void gameInfo:: presentAllOtherThings ( const int &level) {
     myBackButton.init ();
     myBackButton.createButton (renderer);
 
+    RestartButton myRestartButton;
+    myRestartButton.init ();
+    myRestartButton.createButton (renderer);
+
+    UndoButton myUndoButton;
+    myUndoButton.init ();
+    myUndoButton.createButton (renderer);
+
 }
 
-void gameInfo :: updateAllState (const double &angle, const bool &presentState) {
+void gamePresenter :: updateAllState (const double &angle, const bool &presentState) {
     bool state[Table_size + 1][Table_size + 1];
     memset (state, false, sizeof(state));
     for (auto info: blocks)
@@ -286,28 +361,41 @@ void gameInfo :: updateAllState (const double &angle, const bool &presentState) 
     } while (cnt > 0);
 }
 
-void gameInfo:: update(const double &angle, const int &level) {
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    presentAllOtherThings(level);
-    updateAllState(angle, true);
-    SDL_DestroyRenderer(renderer);
-}
-
-bool gameInfo :: completeLevel () {
-    for (auto destination: destinations) {
-        bool found = false;
-        for (auto ball: balls)
-            if (destination.first == ball.first && destination.second == ball.second)
-                found = true;
-        if (!found) return false;
+void gamePresenter :: compressData (gameState &gameState) {
+    gameState.balls.clear ();
+    gameState.blocks.clear ();
+    gameState.destinations.clear ();
+    for (auto ball: balls) {
+        gameState.balls.push_back (ball);
     }
-    return true;
+    for (auto block: blocks) {
+        gameState.blocks.push_back (block);
+    }
+    for (auto destination: destinations) {
+        gameState.destinations.push_back (destination);
+    }
 }
 
-void gameInfo :: displayComplete () {
-    renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    presentFrameBackground (true, 0);
-    presentIFrame (0);
-    SDL_RenderPresent (renderer);
-    SDL_DestroyRenderer(renderer);
+void gamePresenter :: extractData (gameState &gameState) {
+    balls.clear ();
+    blocks.clear ();
+    destinations.clear ();
+    for (auto ball: gameState.balls) {
+        balls.push_back (ball);
+    }
+    for (auto block: gameState.blocks) {
+        blocks.push_back (block);
+    }
+    for (auto destination: gameState.destinations) {
+        destinations.push_back (destination);
+    }
+}
+
+void gamePresenter :: pushUndo() {
+    struct gameState newGameState;
+    compressData (newGameState);
+    undoQueue.push_back (newGameState);
+    while (int(undoQueue.size()) > MaxUndo) {
+        undoQueue.pop_front ();
+    }
 }

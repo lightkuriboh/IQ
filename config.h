@@ -20,8 +20,11 @@ const string destination_link = "img/destination.bmp";
 const string block_link = "img/block.bmp";
 const string back_link = "img/back.bmp";
 const string endless_link = "img/endless.bmp";
+const string undo_link = "img/undo.bmp";
+const string restart_link = "img/restart.bmp";
 
-const int maxLevel = 10;
+const int MaxLevel = 10;
+const int MaxUndo = 11;
 const int Table_size = 12;
 
 namespace myNamespace {

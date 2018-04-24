@@ -55,6 +55,20 @@ namespace myNamespace {
         return inRect (pos.first, pos.second, backButton.r);
     }
 
+    bool clickUndo (const SDL_Event &event) {
+        UndoButton myUndoButton;
+        myUndoButton.init ();
+        pair <int, int> pos = mouseClickLeft(event);
+        return inRect (pos.first, pos.second, myUndoButton.r);
+    }
+
+    bool clickRestart (const SDL_Event &event) {
+        RestartButton myRestartButton;
+        myRestartButton.init ();
+        pair <int, int> pos = mouseClickLeft(event);
+        return inRect (pos.first, pos.second, myRestartButton.r);
+    }
+
     bool quit (const SDL_Event &event) {
 
         if ( 0 || event.type == SDL_QUIT ) return true;

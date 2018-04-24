@@ -33,6 +33,20 @@ void BackButton :: init () {
     link = back_link;
 }
 
+void RestartButton :: init () {
+    r.w = r.h = mainWindowsWidth * 0.09;
+    r.x = mainWindowsWidth - r.w;
+    r.y = r.h;
+    link = restart_link;
+}
+
+void UndoButton :: init () {
+    r.w = r.h = mainWindowsWidth * 0.09;
+    r.x = mainWindowsWidth - r.w;
+    r.y = 0;
+    link = undo_link;
+}
+
 void button::createButton (SDL_Renderer *&renderer) {
 
     background = SDL_LoadBMP( link.c_str() );
