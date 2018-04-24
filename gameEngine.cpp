@@ -54,8 +54,6 @@ namespace myNamespace {
 
     void initGameMenu (UI &thisUI) {
 
-
-
         thisUI.renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
         thisUI.initBackground(background_link);
 
@@ -64,7 +62,6 @@ namespace myNamespace {
         myButtonStart.createButton(thisUI.renderer);
         SDL_RenderPresent(thisUI.renderer);
         SDL_DestroyRenderer(thisUI.renderer);
-
     }
 
     void StartOneThread (const int &height, const int &width) {

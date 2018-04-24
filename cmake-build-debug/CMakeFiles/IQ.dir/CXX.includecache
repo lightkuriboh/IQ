@@ -73,15 +73,19 @@ gamePresenter.h
 /home/kuribohkute/workspace/C++/IQ/gamePresenter.h
 
 /home/kuribohkute/workspace/C++/IQ/gamePresenter.h
-sstream
+set
+-
+deque
+-
+deque
 -
 vector
+-
+sstream
 -
 fstream
 -
 iostream
--
-set
 -
 algorithm
 -
@@ -91,8 +95,6 @@ config.h
 /home/kuribohkute/workspace/C++/IQ/config.h
 buttons.h
 /home/kuribohkute/workspace/C++/IQ/buttons.h
-deque
--
 
 /home/kuribohkute/workspace/C++/IQ/main.cpp
 gameEngine.h

@@ -2,16 +2,18 @@
 #define GAMEPRESENTER_H_INCLUDED
 using namespace std;
 
-#include <sstream>
+#include <set>
+#include <deque>
+#include <deque>
 #include <vector>
+#include <sstream>
 #include <fstream>
 #include <iostream>
-#include <set>
 #include <algorithm>
 #include <SDL2/SDL.h>
+
 #include "config.h"
 #include "buttons.h"
-#include <deque>
 
 namespace myNamespace {
 
