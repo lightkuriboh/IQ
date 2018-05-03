@@ -100,10 +100,6 @@ void gamePresenter::freeResource() {
 // private -------------------------------------------------------------------------------------
 
 
-bool gamePresenter :: cmp (const pair <int, int> &a, const pair <int, int> &b) {
-    return a.second > b.second;
-}
-
 void gamePresenter ::generateLevel(const int &levelNow) {
     int level = levelNow;
     if (level > MaxLevel) {
@@ -320,7 +316,7 @@ void gamePresenter :: updateAllState (const double &angle, const bool &presentSt
     for (auto info: blocks)
         state [info.first][info.second] = true;
     //------------------------------------------------------------------
-    //sort (ball.begin(), ball.end(), cmp); // sort balls to easy manage
+    sort (balls.begin(), balls.end(), cmp); // sort balls to easy manage
     set <pair <int, int> > isBall;
     isBall.clear();
     for (auto ball: balls) {
@@ -394,4 +390,8 @@ void gamePresenter :: pushUndo() {
     while (int(undoQueue.size()) > MaxUndo) {
         undoQueue.pop_front ();
     }
+}
+
+bool gamePresenter::cmp (const pair <int, int> &a, const pair <int, int> &b) {
+    return a.second > b.second;
 }

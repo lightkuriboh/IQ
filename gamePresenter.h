@@ -17,6 +17,7 @@ using namespace std;
 
 namespace myNamespace {
 
+
     class gamePresenter {
         public:
             vector <pair <int, int> > balls;
@@ -41,10 +42,10 @@ namespace myNamespace {
                 vector <pair <int, int> > balls, blocks, destinations;
             };
             deque <gameState> undoQueue;
+
+            static bool cmp (const pair <int, int> &a, const pair <int, int> &b);
+
             struct gameState originalGameState;
-
-
-            bool cmp (const pair <int, int> &a, const pair <int, int> &b);
 
             void compressData (gameState &gameState);
             void extractData  (gameState &gameState);
