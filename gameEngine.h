@@ -14,6 +14,8 @@ namespace myNamespace {
     void processLevel (int &level, bool &stopGame, bool &levelUp, bool &backMenu);
     void StartOneThread (const int &height, const int &width);
     void initGameMenu (UI &thisUI);
+    void initOneImage (SDL_Surface *&surface, const string &link);
+    void initGameData ();
 }
 
 #endif // GAMEENGINE_H_INCLUDED

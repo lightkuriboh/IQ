@@ -29,6 +29,20 @@ const int Table_size = 12;
 
 namespace myNamespace {
     extern SDL_Window *window;
+    extern SDL_Surface *image_buttonStart;
+    extern SDL_Surface *image_background;
+    extern SDL_Surface *image_rotateLeft;
+    extern SDL_Surface *image_rotateRight;
+    extern SDL_Surface *image_completeLevel;
+    extern SDL_Surface *image_bgFrame;
+    extern SDL_Surface *image_iframe;
+    extern SDL_Surface *image_ball;
+    extern SDL_Surface *image_destination;
+    extern SDL_Surface *image_block;
+    extern SDL_Surface *image_back;
+    extern SDL_Surface *image_endless;
+    extern SDL_Surface *image_undo;
+    extern SDL_Surface *image_restart;
 }
 
 #endif // CONFIG_H_INCLUDED

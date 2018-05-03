@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/kuribohkute/workspace/C++/IQ/. 
+CXX_INCLUDES = -I/home/kuribohkute/workspace/programming/C++/IQ/. 
 

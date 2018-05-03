@@ -43,10 +43,10 @@ RM = /home/kuribohkute/workspace/IDE/clion/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/kuribohkute/workspace/C++/IQ
+CMAKE_SOURCE_DIR = /home/kuribohkute/workspace/programming/C++/IQ
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/kuribohkute/workspace/C++/IQ/cmake-build-debug
+CMAKE_BINARY_DIR = /home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/IQ.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/IQ.dir/flags.make
 
 CMakeFiles/IQ.dir/buttons.cpp.o: CMakeFiles/IQ.dir/flags.make
 CMakeFiles/IQ.dir/buttons.cpp.o: ../buttons.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/IQ.dir/buttons.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/buttons.cpp.o -c /home/kuribohkute/workspace/C++/IQ/buttons.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/IQ.dir/buttons.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/buttons.cpp.o -c /home/kuribohkute/workspace/programming/C++/IQ/buttons.cpp
 
 CMakeFiles/IQ.dir/buttons.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IQ.dir/buttons.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/C++/IQ/buttons.cpp > CMakeFiles/IQ.dir/buttons.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/programming/C++/IQ/buttons.cpp > CMakeFiles/IQ.dir/buttons.cpp.i
 
 CMakeFiles/IQ.dir/buttons.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IQ.dir/buttons.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/C++/IQ/buttons.cpp -o CMakeFiles/IQ.dir/buttons.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/programming/C++/IQ/buttons.cpp -o CMakeFiles/IQ.dir/buttons.cpp.s
 
 CMakeFiles/IQ.dir/buttons.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/IQ.dir/buttons.cpp.o.provides.build: CMakeFiles/IQ.dir/buttons.cpp.o
 
 CMakeFiles/IQ.dir/CreateWindows.cpp.o: CMakeFiles/IQ.dir/flags.make
 CMakeFiles/IQ.dir/CreateWindows.cpp.o: ../CreateWindows.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/IQ.dir/CreateWindows.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/CreateWindows.cpp.o -c /home/kuribohkute/workspace/C++/IQ/CreateWindows.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/IQ.dir/CreateWindows.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/CreateWindows.cpp.o -c /home/kuribohkute/workspace/programming/C++/IQ/CreateWindows.cpp
 
 CMakeFiles/IQ.dir/CreateWindows.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IQ.dir/CreateWindows.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/C++/IQ/CreateWindows.cpp > CMakeFiles/IQ.dir/CreateWindows.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/programming/C++/IQ/CreateWindows.cpp > CMakeFiles/IQ.dir/CreateWindows.cpp.i
 
 CMakeFiles/IQ.dir/CreateWindows.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IQ.dir/CreateWindows.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/C++/IQ/CreateWindows.cpp -o CMakeFiles/IQ.dir/CreateWindows.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/programming/C++/IQ/CreateWindows.cpp -o CMakeFiles/IQ.dir/CreateWindows.cpp.s
 
 CMakeFiles/IQ.dir/CreateWindows.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/IQ.dir/CreateWindows.cpp.o.provides.build: CMakeFiles/IQ.dir/CreateWi
 
 CMakeFiles/IQ.dir/EventHandler.cpp.o: CMakeFiles/IQ.dir/flags.make
 CMakeFiles/IQ.dir/EventHandler.cpp.o: ../EventHandler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/IQ.dir/EventHandler.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/EventHandler.cpp.o -c /home/kuribohkute/workspace/C++/IQ/EventHandler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/IQ.dir/EventHandler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/EventHandler.cpp.o -c /home/kuribohkute/workspace/programming/C++/IQ/EventHandler.cpp
 
 CMakeFiles/IQ.dir/EventHandler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IQ.dir/EventHandler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/C++/IQ/EventHandler.cpp > CMakeFiles/IQ.dir/EventHandler.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/programming/C++/IQ/EventHandler.cpp > CMakeFiles/IQ.dir/EventHandler.cpp.i
 
 CMakeFiles/IQ.dir/EventHandler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IQ.dir/EventHandler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/C++/IQ/EventHandler.cpp -o CMakeFiles/IQ.dir/EventHandler.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/programming/C++/IQ/EventHandler.cpp -o CMakeFiles/IQ.dir/EventHandler.cpp.s
 
 CMakeFiles/IQ.dir/EventHandler.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/IQ.dir/EventHandler.cpp.o.provides.build: CMakeFiles/IQ.dir/EventHand
 
 CMakeFiles/IQ.dir/gameEngine.cpp.o: CMakeFiles/IQ.dir/flags.make
 CMakeFiles/IQ.dir/gameEngine.cpp.o: ../gameEngine.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/IQ.dir/gameEngine.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/gameEngine.cpp.o -c /home/kuribohkute/workspace/C++/IQ/gameEngine.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/IQ.dir/gameEngine.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/gameEngine.cpp.o -c /home/kuribohkute/workspace/programming/C++/IQ/gameEngine.cpp
 
 CMakeFiles/IQ.dir/gameEngine.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IQ.dir/gameEngine.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/C++/IQ/gameEngine.cpp > CMakeFiles/IQ.dir/gameEngine.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/programming/C++/IQ/gameEngine.cpp > CMakeFiles/IQ.dir/gameEngine.cpp.i
 
 CMakeFiles/IQ.dir/gameEngine.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IQ.dir/gameEngine.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/C++/IQ/gameEngine.cpp -o CMakeFiles/IQ.dir/gameEngine.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/programming/C++/IQ/gameEngine.cpp -o CMakeFiles/IQ.dir/gameEngine.cpp.s
 
 CMakeFiles/IQ.dir/gameEngine.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/IQ.dir/gameEngine.cpp.o.provides.build: CMakeFiles/IQ.dir/gameEngine.
 
 CMakeFiles/IQ.dir/gamePresenter.cpp.o: CMakeFiles/IQ.dir/flags.make
 CMakeFiles/IQ.dir/gamePresenter.cpp.o: ../gamePresenter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/IQ.dir/gamePresenter.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/gamePresenter.cpp.o -c /home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/IQ.dir/gamePresenter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/gamePresenter.cpp.o -c /home/kuribohkute/workspace/programming/C++/IQ/gamePresenter.cpp
 
 CMakeFiles/IQ.dir/gamePresenter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IQ.dir/gamePresenter.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp > CMakeFiles/IQ.dir/gamePresenter.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/programming/C++/IQ/gamePresenter.cpp > CMakeFiles/IQ.dir/gamePresenter.cpp.i
 
 CMakeFiles/IQ.dir/gamePresenter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IQ.dir/gamePresenter.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp -o CMakeFiles/IQ.dir/gamePresenter.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/programming/C++/IQ/gamePresenter.cpp -o CMakeFiles/IQ.dir/gamePresenter.cpp.s
 
 CMakeFiles/IQ.dir/gamePresenter.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/IQ.dir/gamePresenter.cpp.o.provides.build: CMakeFiles/IQ.dir/gamePres
 
 CMakeFiles/IQ.dir/main.cpp.o: CMakeFiles/IQ.dir/flags.make
 CMakeFiles/IQ.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/IQ.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/main.cpp.o -c /home/kuribohkute/workspace/C++/IQ/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/IQ.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/IQ.dir/main.cpp.o -c /home/kuribohkute/workspace/programming/C++/IQ/main.cpp
 
 CMakeFiles/IQ.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/IQ.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/C++/IQ/main.cpp > CMakeFiles/IQ.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kuribohkute/workspace/programming/C++/IQ/main.cpp > CMakeFiles/IQ.dir/main.cpp.i
 
 CMakeFiles/IQ.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/IQ.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/C++/IQ/main.cpp -o CMakeFiles/IQ.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kuribohkute/workspace/programming/C++/IQ/main.cpp -o CMakeFiles/IQ.dir/main.cpp.s
 
 CMakeFiles/IQ.dir/main.cpp.o.requires:
 
@@ -221,7 +221,7 @@ IQ: CMakeFiles/IQ.dir/gamePresenter.cpp.o
 IQ: CMakeFiles/IQ.dir/main.cpp.o
 IQ: CMakeFiles/IQ.dir/build.make
 IQ: CMakeFiles/IQ.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable IQ"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable IQ"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/IQ.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -243,6 +243,6 @@ CMakeFiles/IQ.dir/clean:
 .PHONY : CMakeFiles/IQ.dir/clean
 
 CMakeFiles/IQ.dir/depend:
-	cd /home/kuribohkute/workspace/C++/IQ/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kuribohkute/workspace/C++/IQ /home/kuribohkute/workspace/C++/IQ /home/kuribohkute/workspace/C++/IQ/cmake-build-debug /home/kuribohkute/workspace/C++/IQ/cmake-build-debug /home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/kuribohkute/workspace/programming/C++/IQ /home/kuribohkute/workspace/programming/C++/IQ /home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug /home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug /home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/IQ.dir/depend
 

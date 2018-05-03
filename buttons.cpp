@@ -47,13 +47,11 @@ void UndoButton :: init () {
     link = undo_link;
 }
 
-void button::createButton (SDL_Renderer *&renderer) {
+void button::createButton (SDL_Renderer *&renderer, SDL_Surface *surface) {
 
-    background = SDL_LoadBMP( link.c_str() );
-
-    texture = SDL_CreateTextureFromSurface(renderer,background);
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer,surface);
 
     SDL_RenderCopy (renderer, texture, NULL, &(r) );
-    SDL_FreeSurface(background);
+
     SDL_DestroyTexture(texture);
 }

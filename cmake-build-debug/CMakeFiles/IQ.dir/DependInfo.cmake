@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/kuribohkute/workspace/C++/IQ/CreateWindows.cpp" "/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/CreateWindows.cpp.o"
-  "/home/kuribohkute/workspace/C++/IQ/EventHandler.cpp" "/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/EventHandler.cpp.o"
-  "/home/kuribohkute/workspace/C++/IQ/buttons.cpp" "/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/buttons.cpp.o"
-  "/home/kuribohkute/workspace/C++/IQ/gameEngine.cpp" "/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/gameEngine.cpp.o"
-  "/home/kuribohkute/workspace/C++/IQ/gamePresenter.cpp" "/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/gamePresenter.cpp.o"
-  "/home/kuribohkute/workspace/C++/IQ/main.cpp" "/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/main.cpp.o"
+  "/home/kuribohkute/workspace/programming/C++/IQ/CreateWindows.cpp" "/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/CreateWindows.cpp.o"
+  "/home/kuribohkute/workspace/programming/C++/IQ/EventHandler.cpp" "/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/EventHandler.cpp.o"
+  "/home/kuribohkute/workspace/programming/C++/IQ/buttons.cpp" "/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/buttons.cpp.o"
+  "/home/kuribohkute/workspace/programming/C++/IQ/gameEngine.cpp" "/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/gameEngine.cpp.o"
+  "/home/kuribohkute/workspace/programming/C++/IQ/gamePresenter.cpp" "/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/gamePresenter.cpp.o"
+  "/home/kuribohkute/workspace/programming/C++/IQ/main.cpp" "/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/CMakeFiles/IQ.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

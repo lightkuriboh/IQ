@@ -13,7 +13,7 @@ namespace myNamespace {
         public:
             SDL_Rect r;
             string link;
-            void createButton (SDL_Renderer *&renderer);
+            void createButton (SDL_Renderer *&renderer, SDL_Surface *surface);
     };
 
     class StartButton: public button {

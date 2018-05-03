@@ -36,7 +36,6 @@ namespace myNamespace {
         private:
             SDL_Point center;
             SDL_Rect positionFrame;
-            SDL_Texture *texture;
             SDL_Renderer *renderer;
             struct gameState {
                 vector <pair <int, int> > balls, blocks, destinations;
@@ -59,7 +58,7 @@ namespace myNamespace {
             void presentGameState (const double &angle);
             void RotateLeft (vector <pair <int, int> > &v);
             void RotateRight (vector <pair <int, int> > &v);
-            void presentImage (const SDL_Rect r, const string &image_link, const double &angle);
+            void presentImage (const SDL_Rect r, SDL_Surface *surface, const double &angle);
             void presentLevelInfo (const int &level);
     };
 }

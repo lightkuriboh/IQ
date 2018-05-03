@@ -19,7 +19,7 @@ void gamePresenter :: RotateLeftAll (const int &level) {
 
     pushUndo ();
 
-    for (double angle = -10; angle >= -90; angle -= 10) {
+    for (double angle = -8; angle >= -90; angle -= 8) {
         update(angle, level);
         SDL_Delay (0);
     }
@@ -32,7 +32,7 @@ void gamePresenter :: RotateRightAll (const int &level) {
 
     pushUndo ();
 
-    for (double angle = 10; angle <= 90; angle += 10) {
+    for (double angle = 8; angle <= 90; angle += 8) {
         update(angle, level);
         SDL_Delay (0);
     }
@@ -219,15 +219,17 @@ void gamePresenter::presentLevelInfo (const int &level) {
     if (level > MaxLevel)
         levelNow = endless_link;
 
-    presentImage (rbg, background_link, 0);
-    presentImage (r, levelNow, 0);
+    presentImage (rbg, image_background, 0);
+
+    SDL_Surface * surface = SDL_LoadBMP(levelNow.c_str());
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_RenderCopy(renderer, texture, NULL, &r);
+    SDL_DestroyTexture(texture);
 }
 
-void gamePresenter :: presentImage (const SDL_Rect r, const string &image_link, const double&angle) {
+void gamePresenter :: presentImage (const SDL_Rect r, SDL_Surface *surface, const double&angle) {
 
-    SDL_Surface *background = SDL_LoadBMP(image_link.c_str());
-
-    texture = SDL_CreateTextureFromSurface(renderer, background);
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);
 
     SDL_Point realCenter;
     realCenter.x = center.x - r.x;
@@ -235,7 +237,6 @@ void gamePresenter :: presentImage (const SDL_Rect r, const string &image_link, 
 
     SDL_RenderCopyEx (renderer, texture, NULL, &r, angle, &realCenter, SDL_FLIP_NONE);
 
-    SDL_FreeSurface (background);
     SDL_DestroyTexture (texture);
 
 }
@@ -246,17 +247,17 @@ void gamePresenter :: presentIFrame (const double &angle) {
     iframe.h = iframe.w;
     iframe.x = MainWindowsWidth * 0.5 - iframe.w * 0.5;
     iframe.y = MainWindowsHeight * 0.4 - iframe.h * 0.5;
-    presentImage (iframe, frame_link, angle);
+    presentImage (iframe, image_iframe, angle);
 
 }
 
 void gamePresenter :: presentFrameBackground (const double &angle, const bool &levelComplete) {
 
     if (levelComplete == false){
-        presentImage (positionFrame, bgFrame_link, angle);
+        presentImage (positionFrame, image_bgFrame, angle);
     }
     else {
-        presentImage (positionFrame, completeLevel_link, angle);
+        presentImage (positionFrame, image_completeLevel, angle);
     }
 }
 
@@ -268,7 +269,7 @@ void gamePresenter :: presentGameState (const double &angle) {
         blocks.w = blocks.h = eachSize;
         blocks.x = positionFrame.x + (pos.first - 1) * eachSize;
         blocks.y = positionFrame.y + (pos.second - 1) * eachSize;
-        presentImage(blocks, block_link, angle);
+        presentImage(blocks, image_block, angle);
     }
 
     for (auto pos: destinations) {
@@ -276,7 +277,7 @@ void gamePresenter :: presentGameState (const double &angle) {
         destinations.w = destinations.h = eachSize;
         destinations.x = positionFrame.x + (pos.first - 1) * eachSize;
         destinations.y = positionFrame.y + (pos.second - 1) * eachSize;
-        presentImage(destinations, destination_link, angle);
+        presentImage(destinations, image_destination, angle);
     }
 
     for (auto pos: balls) {
@@ -284,7 +285,7 @@ void gamePresenter :: presentGameState (const double &angle) {
         balls.w = balls.h = eachSize;
         balls.x = positionFrame.x + (pos.first - 1) * eachSize;
         balls.y = positionFrame.y + (pos.second - 1) * eachSize;
-        presentImage(balls, ball_link, angle);
+        presentImage(balls, image_ball, angle);
     }
 }
 
@@ -293,23 +294,23 @@ void gamePresenter:: presentAllOtherThings ( const int &level) {
     presentLevelInfo(level);
     RotateButton myRotateLeftButton;
     myRotateLeftButton.init ("left");
-    myRotateLeftButton.createButton (renderer);
+    myRotateLeftButton.createButton (renderer, image_rotateLeft);
 
     RotateButton myRotateRightButton;
     myRotateRightButton.init ("right");
-    myRotateRightButton.createButton (renderer);
+    myRotateRightButton.createButton (renderer, image_rotateRight);
 
     BackButton myBackButton;
     myBackButton.init ();
-    myBackButton.createButton (renderer);
+    myBackButton.createButton (renderer, image_back);
 
     RestartButton myRestartButton;
     myRestartButton.init ();
-    myRestartButton.createButton (renderer);
+    myRestartButton.createButton (renderer, image_restart);
 
     UndoButton myUndoButton;
     myUndoButton.init ();
-    myUndoButton.createButton (renderer);
+    myUndoButton.createButton (renderer, image_undo);
 
 }
 

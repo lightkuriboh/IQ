@@ -1,4 +1,4 @@
-# Install script for directory: /home/kuribohkute/workspace/C++/IQ
+# Install script for directory: /home/kuribohkute/workspace/programming/C++/IQ
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/kuribohkute/workspace/C++/IQ/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/kuribohkute/workspace/programming/C++/IQ/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
